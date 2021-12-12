@@ -175,8 +175,8 @@
 
 					if($row_d > 0){
 						while($d = mysqli_fetch_array($sql_d)){ 
-                            echo "<form action='aksi_update.php' method='post' enctype='multipart/form-data'>";
-
+                            echo "<form action='aksi_input_pensiun.php' method='post' enctype='multipart/form-data'>";
+                            echo "<input type='hidden' name='id' value=".$id.">";
                                 echo "<table class='table table-secondary'>";
                                 echo "<thead>";
                                     echo "<tr>";
