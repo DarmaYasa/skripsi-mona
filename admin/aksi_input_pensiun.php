@@ -18,13 +18,13 @@ foreach ($files as $key => $file) {
     $filename = $_FILES[$key]['name'];
     $ukuran = $_FILES[$key]['size'];
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    if (!in_array($ext, $ekstensi)) { //5MB
+    if (!in_array($ext, $ekstensi)) {
         header("location:detail_pensiun.php?id='$id'&alert=gagal_ekstensi");
     }
 
-    // if ($ukuran > (100 * 1024)) {
-    //     header("location:detail_pensiun.php?id='$id'&alert=gagal_ukuran");
-    // }
+    if ($ukuran > (5 * 1024 * 1024)) {
+        header("location:detail_pensiun.php?id='$id'&alert=gagal_ukuran");
+    }
 }
 
 $uploadedFiles = [];
@@ -44,8 +44,6 @@ if (mysqli_num_rows($check) > 0) {
 
 $query = "INSERT INTO berkas_pensiun (id_pegawai, berkas_sns, berkas_kenaikan_pangkat, kartu_pegawai, berkas_karsi, kartu_keluarga, surat_ket_alamat_pensiun, terverifikasi) VALUES ('$id', '$berkas_sk_pns', '$berkas_kenaikan_pangkat', '$kartu_pegawai', '$berkas_karsi_karsu', '$kartu_keluarga', '$alamat_pensiun', '0')";
 
-echo $query;
-//TODO: update mysql query
 if (mysqli_query($koneksi, $query)) {
     header("location:view_pensiun.php?alert=berhasil");
 } else {
