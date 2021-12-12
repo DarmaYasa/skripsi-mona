@@ -1,6 +1,7 @@
 <?php 
 
 include '../env.php';
+include '../auth/cek_session.php';
 
 $nama_lengkap = $_POST['nama_lengkap'];
 $nip = $_POST['nip'];

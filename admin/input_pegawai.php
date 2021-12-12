@@ -1,14 +1,4 @@
-<?php 
-	session_start();
-
-	// cek apakah yang mengakses halaman ini sudah login
-	if($_SESSION['level']==""){
-		header("location:../index.php?pesan=gagal");
-	}
-
-?>
-
-<?php include '../env.php'; ?>
+<?php include '../env.php'; include '../auth/cek_session.php'; ?>
 
 <?php 
 	if(isset($_GET['pesan'])){

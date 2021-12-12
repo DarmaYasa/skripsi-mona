@@ -1,3 +1,5 @@
+<?php include '../env.php'; include '../auth/cek_session.php'; ?>
+
 <?php 
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="gagal"){

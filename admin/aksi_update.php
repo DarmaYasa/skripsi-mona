@@ -1,5 +1,6 @@
 <?php
     include '../env.php';
+    include '../auth/cek_session.php';
     
     $id = $_POST['id'];
 

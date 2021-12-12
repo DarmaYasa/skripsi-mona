@@ -1,4 +1,4 @@
-<?php include '../env.php'; ?>
+<?php include '../env.php'; include '../auth/cek_session.php'; ?>
 
 <?php 
 	if(isset($_GET['pesan'])){
