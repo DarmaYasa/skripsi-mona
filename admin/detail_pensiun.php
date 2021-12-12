@@ -169,7 +169,7 @@
 
                     <?php
                     $id = $_GET["id"];
-					$data = "SELECT * FROM pegawai WHERE id = $id";
+					$data = "SELECT * FROM berkas_pensiun WHERE id_pegawai = $id LIMIT 1";
 					$sql_d = mysqli_query($koneksi, $data);
 					$row_d = mysqli_num_rows($sql_d);
 
