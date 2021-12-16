@@ -9,6 +9,7 @@
     $tempat_lahir = $_POST['tempat_lahir'];
     $tanggal_lahir = $_POST['tanggal_lahir'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
+    $foto = $_POST['foto'];
     $status = $_POST['status'];
     $agama = $_POST['agama'];
     $masa_jabatan = $_POST['masa_jabatan'];
@@ -23,16 +24,18 @@
     $ukuran = $_FILES['foto']['size'];
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
     
-    if(!in_array($ext,$ekstensi) ) {
-        header("location:view_pensiun.php?alert=gagal_ekstensi");
-    }else{
-        if($ukuran < 1044070){		
-            $xxx = $rand.'_'.$filename;
-            move_uploaded_file($_FILES['foto']['tmp_name'], '../gambar/'.$rand.'_'.$filename);
-            mysqli_query($koneksi, "UPDATE pegawai SET VALUES(NULL,'$xx','$nama_lengkap','$nip','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$status','$agama','$masa_jabatan','$tempat_tugas','$no_sk_pensiun','$golongan','$gaji_pokok','$xxx') WHERE id=$id");
-            header("location:view_pensiun.php?alert=berhasil");
-        }else{
+    if($_FILES['foto']) {
+        
+        if(!in_array($ext,$ekstensi)) {
+            header("location:view_pensiun.php?alert=gagal_ekstensi");
+        } else if($ukuran >= 1044070){		
             header("location:view_pensiun.php?alert=gagal_ukuran");
         }
+
+        $foto = $rand.'_'.$filename;
+        move_uploaded_file($_FILES['foto']['tmp_name'], '../gambar/'.$rand.'_'.$filename);
     }
+    
+    mysqli_query($koneksi, "UPDATE pegawai SET VALUES(NULL,'$xx','$nama_lengkap','$nip','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$status','$agama','$masa_jabatan','$tempat_tugas','$no_sk_pensiun','$golongan','$gaji_pokok','$foto') WHERE id=$id");
+    header("location:view_pensiun.php?alert=berhasil");
 ?>

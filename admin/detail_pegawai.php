@@ -246,7 +246,7 @@
 							echo "</div>";
 
 							echo "<div class='text-end'>";
-								echo "<a class='btn btn-success rounded-0' href=''>Ubah Data</a>";
+								echo "<a class='btn btn-success rounded-0' href='edit_pegawai.php?id=" . $id . "'>Ubah Data</a>";
 							echo "</div>";
 
 							echo "</div>";

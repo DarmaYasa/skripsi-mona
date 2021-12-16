@@ -162,7 +162,9 @@
 			<div class="container">
 				<div class="row mb-3">
 					<div class="col col-lg-2">
-						
+						<div>
+							<a class="btn btn-secondary rounded-0" href="input_pegawai.php">Tambah Data</a>
+						</div>
 					</div>
 					<div class="col">
 

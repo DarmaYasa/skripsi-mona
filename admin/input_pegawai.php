@@ -31,7 +31,7 @@ if (isset($_GET['pesan'])) {
 
 	<style>
 		input {
-			text-align: center;
+			/* text-align: center; */
 			color: #000000;
 		}
 
@@ -183,11 +183,7 @@ if (isset($_GET['pesan'])) {
 			</div>
 			<div class="form-group">
 				<label>Tempat Lahir :</label>
-				<select name="agama" required class="form-control">
-					<option value="" disabled selected>-Pilih Jenis Kelamin-</option>
-					<option value="Perempuan">Perempuan</option>
-					<option value="Laki - laki">Laki - laki</option>
-				</select>
+				<input type="text" class="form-control" name="tempat_lahir" required="required">
 			</div>
 			<div class="form-group">
 				<label>Tanggal Lahir :</label>
@@ -195,7 +191,11 @@ if (isset($_GET['pesan'])) {
 			</div>
 			<div class="form-group">
 				<label>Jenis Kelamin :</label>
-				<input type="text" class="form-control" name="jenis_kelamin" required="required">
+				<select name="jenis_kelamin" required class="form-control">
+					<option value="" disabled selected>-Pilih Jenis Kelamin-</option>
+					<option value="Perempuan">Perempuan</option>
+					<option value="Laki - laki">Laki - laki</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label>Status :</label>
@@ -231,7 +231,7 @@ if (isset($_GET['pesan'])) {
 			</div>
 			<div class="form-group">
 				<label>Gaji Pokok :</label>
-				<input type="text" class="form-control" name="gaji_pokok" required="required">
+				<input type="number" class="form-control" name="gaji_pokok" required="required">
 			</div>
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
 		</form>
