@@ -88,14 +88,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark active" href="index_admin.php">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="view_pegawai.php">Berkas Pensiun</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">Tentang</a>
+                    <li class="nav-item active">
+							<a class="nav-link text-dark" href="index_admin.php">Beranda</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark active" href="view_berkas_pensiun.php">Berkas Pensiun</a>
+						</li>
+						<!-- <li class="nav-item">
+							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
+						</li> -->
+						<li class="nav-item">
+							<a class="nav-link text-dark" href="#">Tentang</a>
+						</li>
+						<li class="nav-item">
+                            <a class="nav-link text-danger" href="../auth/logout.php">Logout</a>
                         </li>
                     </ul>
                 </div>

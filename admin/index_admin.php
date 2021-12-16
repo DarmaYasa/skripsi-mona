@@ -100,6 +100,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="#">Tentang</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="../auth/logout.php">Logout</a>
+                        </li>
                     </ul>
                 </div>
             </div>
