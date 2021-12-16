@@ -122,11 +122,11 @@
 							<a class="nav-link text-dark" href="index_admin.php">Beranda</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark active" href="view_pegawai.php">Pegawai</a>
+							<a class="nav-link text-dark active" href="view_berkas_pensiun.php">Berkas Pensiun</a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
-						</li>
+						</li> -->
 						<li class="nav-item">
 							<a class="nav-link text-dark" href="#">Tentang</a>
 						</li>
@@ -162,9 +162,9 @@
 			<div class="container">
 				<div class="row mb-3">
 					<div class="col col-lg-2">
-						<div>
+						<!-- <div>
 							<a class="btn btn-secondary rounded-0" href="input_pegawai.php">Tambah Data</a>
-						</div>
+						</div> -->
 					</div>
 					<div class="col">
 
@@ -191,6 +191,7 @@
 								<tr>
 									<th scope="col">No</th>
 									<th scope="col">Nama</th>
+									<th scope="col">Status</th>
 									<th scope="col">Opsi</th>
 								</tr>
 							</thead>
@@ -198,17 +199,20 @@
 
 							<?php 
 								$no = 1;
-								$query = "SELECT * FROM pegawai JOIN berkas_pensiun ON berkas_pensiun.id_pegawai=pegawai.id WHERE pegawai.nama_lengkap LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%'";
+								$query = "SELECT pegawai.*, berkas_pensiun.* FROM pegawai JOIN berkas_pensiun ON berkas_pensiun.id_pegawai=pegawai.id WHERE pegawai.nama_lengkap LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%'";
 								$sql = mysqli_query($koneksi, $query);
 								$row = mysqli_num_rows($sql);
 								if($row > 0){
-								while($d = mysqli_fetch_array($sql)){
+								while($d = mysqli_fetch_assoc($sql)){
+									// $status = $d['terverifikasi'] ? "Terverifikasi" : "Belum terverifikasi";
+									// print_r($d);
 									echo "<tr>";
 									echo "<td>".$no++."</td>";
 									echo "<td>".$d['nama_lengkap']."</td>";
-									$id = $d['id'];
+									echo "<td>".($d['terverifikasi'] ? "Terverifikasi" : "Belum terverifikasi")."</td>";
+									$id = $d['id_pegawai'];
 									echo "<td>
-											<a href='detail_pensiun.php?id=$id'>Detail<a>
+											<a href='detail_berkas_pensiun.php?id=$id'>Detail<a>
 										</td>
 									</tr>";
 									}
