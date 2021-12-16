@@ -92,10 +92,7 @@
                             <a class="nav-link text-dark active" href="index_admin.php">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="view_pegawai.php">Pegawai</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
+                            <a class="nav-link text-dark" href="view_pegawai.php">Berkas Pensiun</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="#">Tentang</a>

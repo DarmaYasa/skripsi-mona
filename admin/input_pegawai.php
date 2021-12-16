@@ -1,11 +1,12 @@
-<?php include '../env.php'; include '../auth/cek_session.php'; ?>
+<?php include '../env.php';include '../auth/cek_session.php';?>
 
-<?php 
-	if(isset($_GET['pesan'])){
-		if($_GET['pesan']=="gagal"){
-			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
-		}
-	}
+<?php
+
+if (isset($_GET['pesan'])) {
+    if ($_GET['pesan'] == "gagal") {
+        echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,35 +53,36 @@
 
 <body>
 
-	<?php 
-		if(isset($_GET['alert'])){
-			if($_GET['alert']=='gagal_ekstensi'){
-				?>
-	<div class="alert alert-warning alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
-		Ekstensi Tidak Diperbolehkan
-	</div>
 	<?php
-			}elseif($_GET['alert']=="gagal_ukuran"){
+
+		if (isset($_GET['alert'])) {
+			if ($_GET['alert'] == 'gagal_ekstensi') {
 				?>
-	<div class="alert alert-warning alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
-		Ukuran File terlalu Besar
-	</div>
-	<?php
-			}elseif($_GET['alert']=="berhasil"){
+			<div class="alert alert-warning alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
+				Ekstensi Tidak Diperbolehkan
+			</div>
+			<?php
+		} elseif ($_GET['alert'] == "gagal_ukuran") {
 				?>
-	<div class="alert alert-success alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		<h4><i class="icon fa fa-check"></i> Success</h4>
-		Berhasil Disimpan
-	</div>
-	<?php
-			}
+			<div class="alert alert-warning alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+				Ukuran File terlalu Besar
+			</div>
+			<?php
+		} elseif ($_GET['alert'] == "berhasil") {
+				?>
+			<div class="alert alert-success alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4><i class="icon fa fa-check"></i> Success</h4>
+				Berhasil Disimpan
+			</div>
+			<?php
 		}
-		?>
+		}
+	?>
 
 	<div id="app">
 
@@ -181,11 +183,15 @@
 			</div>
 			<div class="form-group">
 				<label>Tempat Lahir :</label>
-				<input type="text" class="form-control" name="tempat_lahir" required="required">
+				<select name="agama" required class="form-control">
+					<option value="" disabled selected>-Pilih Jenis Kelamin-</option>
+					<option value="Perempuan">Perempuan</option>
+					<option value="Laki - laki">Laki - laki</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label>Tanggal Lahir :</label>
-				<input type="text" class="form-control" name="tanggal_lahir" required="required">
+				<input type="date" class="form-control" name="tanggal_lahir" required="required">
 			</div>
 			<div class="form-group">
 				<label>Jenis Kelamin :</label>
@@ -197,11 +203,19 @@
 			</div>
 			<div class="form-group">
 				<label>Agama :</label>
-				<input type="text" class="form-control" name="agama" required="required">
+				<select name="agama" required class="form-control">
+					<option value="" disabled selected>-Select Agama-</option>
+					<option value="Hindu">Hindu</option>
+					<option value="Islam">Islam</option>
+					<option value="Katolik">Katolik</option>
+					<option value="Protestan">Protestan</option>
+					<option value="Budha">Budha</option>
+					<option value="Konghucu">Konghucu</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label>Masa Jabatan :</label>
-				<input type="text" class="form-control" name="masa_jabatan" required="required">
+				<input type="date" class="form-control" name="masa_jabatan" required="required">
 			</div>
 			<div class="form-group">
 				<label>Tempat Tugas :</label>
