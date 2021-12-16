@@ -1,4 +1,4 @@
-<?php include '../env.php';include '../auth/cek_session.php';?>
+<?php include '../env.php';include '../auth/cek_session.php'; include 'cek_level.php';?>
 
 <?php
 
