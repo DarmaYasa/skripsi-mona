@@ -199,7 +199,8 @@
 
 							<?php 
 								$no = 1;
-								$query = "SELECT * FROM pegawai WHERE nama_lengkap LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%'";
+								$query = "SELECT * FROM pegawai WHERE nama_lengkap LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%' AND DATE(masa_jabatan) <= DATE(NOW())";
+								// echo $query;
 								$sql = mysqli_query($koneksi, $query);
 								$row = mysqli_num_rows($sql);
 								if($row > 0){
