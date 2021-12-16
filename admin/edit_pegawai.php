@@ -185,6 +185,7 @@ if (isset($_GET['pesan'])) {
 				<input type="file" name="foto" required="required">
 				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
 			</div>
+			<input type="hidden" name="foto" id="" required="required" value="<?= $data['foto'] ?>">
 			<div class="form-group">
 				<label for="">Nama Lengkap :</label>
 				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $data['nama_lengkap'] ?>">
