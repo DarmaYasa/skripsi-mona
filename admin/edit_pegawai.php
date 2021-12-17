@@ -182,7 +182,7 @@ if (isset($_GET['pesan'])) {
                 }
             ?>
 		<h2 style="text-align: center;">Edit Data Pegawai</h2>
-		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
+		<form action="aksi_update.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>Foto :</label>
 				<input type="file" name="foto" required="required">
@@ -192,6 +192,7 @@ if (isset($_GET['pesan'])) {
 			<div class="form-group">
 				<label for="">Nama Lengkap :</label>
 				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $data['nama_lengkap'] ?>">
+				<input type="hidden" class="form-control" name="id" id="" required="required" value="<?= $data['id'] ?>">
 			</div>
 			<div class="form-group">
 				<label>NIP :</label>
@@ -249,6 +250,7 @@ if (isset($_GET['pesan'])) {
 				<label>Gaji Pokok :</label>
 				<input type="number" class="form-control" name="gaji_pokok" required="required" value="<?= $data['gaji_pokok'] ?>">
 			</div>
+			<!-- <input type="submit" name="" value="Hapus" formaction="aksi_delete.php" class="btn btn-danger mr-2"> -->
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
 		</form>
 	</div>

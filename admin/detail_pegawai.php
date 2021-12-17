@@ -249,6 +249,8 @@
 							echo "</div>";
 
 							echo "<div class='text-end'>";
+								$action = "return comfim('Yakin ingin menghapus data?')";
+								echo "<form class='d-inline' style='margin-right: 2px' action='aksi_delete.php' method='POST'><input type='hidden' name='id' value='$id' /><input type='submit' class='btn btn-danger rounded-0 mr-2' value='Delete Data' id='deleteButton' onclick='deleteData()' /></form>";
 								echo "<a class='btn btn-success rounded-0' href='edit_pegawai.php?id=" . $id . "'>Ubah Data</a>";
 							echo "</div>";
 
@@ -273,4 +275,9 @@
 
 	<!-- Bootstrap Bundle with Popper -->
 	<script src="./dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		deleteData() {
+			return confirm('Yaki?');
+		}
+	</script>
 </body>
