@@ -176,6 +176,7 @@
 
 					if($row_d > 0){
 						while($d = mysqli_fetch_assoc($sql_d)){ 
+                            // print_r($d);
                             echo "<form action='aksi_input_pensiun.php' method='post' enctype='multipart/form-data'>";
                             echo "<input type='hidden' name='id' value=".$id.">";
                                 echo "<table class='table table-secondary'>";
@@ -251,6 +252,9 @@
                                 echo "<div class='col'></div>";
                                 echo "<div class='col-lg-7'>";
                                  echo "<div class='text-end'>";
+                                    if($d['id']) {
+                                        echo "<input class='btn btn-danger mr-2 rounded-0' type='submit' formaction='aksi_delete_pensiun.php' value='Hapus' style='margin-right: 2px'>";
+                                    }    
                                     echo "<input class='btn btn-primary rounded-0' type='submit' value='Simpan'>";
                                 echo "</div>";
                                 echo "</div>";
