@@ -122,7 +122,7 @@
 							<a class="nav-link text-dark" href="index.php">Beranda</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark active" href="view_berkas_pensiun.php">Berkas Pensiun</a>
+							<a class="nav-link text-dark active" href="view_pensiun.php">Pensiun</a>
 						</li>
 						<!-- <li class="nav-item">
 							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
@@ -170,7 +170,7 @@
 
                     <?php
                     $id = $_GET["id"];
-					$data = "SELECT pegawai.*, berkas_pensiun.* FROM pegawai LEFT JOIN berkas_pensiun ON pegawai.id=berkas_pensiun.id_pegawai WHERE pegawai.id='$id' LIMIT 1";
+					$data = "SELECT pensiun.*, berkas_pensiun.* FROM pensiun LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE pensiun.id='$id' LIMIT 1";
 					$sql_d = mysqli_query($koneksi, $data);
 					$row_d = mysqli_num_rows($sql_d);
 

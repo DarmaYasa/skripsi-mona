@@ -7,5 +7,5 @@
     $terverifikasi = $_POST['terverifikasi'];
     
     mysqli_query($koneksi, "UPDATE berkas_pensiun SET terverifikasi='$terverifikasi' WHERE id_pegawai=$id");
-    header("location:view_berkas_pensiun.php?alert=berhasil");
+    header("location:view_pensiun.php?alert=Berhasil");
 ?>

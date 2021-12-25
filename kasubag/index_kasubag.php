@@ -92,7 +92,7 @@
 							<a class="nav-link text-dark" href="index.php">Beranda</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark active" href="view_berkas_pensiun.php">Berkas Pensiun</a>
+							<a class="nav-link text-dark active" href="view_pensiun.php">Pensiun</a>
 						</li>
 						<!-- <li class="nav-item">
 							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
