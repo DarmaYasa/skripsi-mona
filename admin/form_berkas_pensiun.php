@@ -170,7 +170,7 @@
 
                     <?php
                     $id = $_GET["id"];
-					$data = "SELECT pegawai.*, berkas_pensiun.* FROM pegawai LEFT JOIN berkas_pensiun ON pegawai.id=berkas_pensiun.id_pensiun WHERE pegawai.id='$id' LIMIT 1";
+					$data = "SELECT pensiun.*, berkas_pensiun.* FROM pensiun LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE pensiun.id='$id' LIMIT 1";
 					$sql_d = mysqli_query($koneksi, $data);
 					$row_d = mysqli_num_rows($sql_d);
 
@@ -262,8 +262,6 @@
                             echo "</div>";
 
                             echo "</form>";
-
-                            $nama_lengkap = $d['nama_lengkap'];
                             }
                         }else{ 
                             echo "<tr><td colspan='4'>Data tidak ada</td></tr>";
