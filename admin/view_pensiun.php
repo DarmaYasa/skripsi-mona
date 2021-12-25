@@ -208,7 +208,7 @@
 									echo "<tr>";
 									echo "<td>".$no++."</td>";
 									echo "<td>".$d['nama']."</td>";
-									$id = $d['id'];
+									$id = $d['id_pegawai'];
 									echo "<td>
 											<a href='detail_pensiun.php?id=$id'>Detail<a>
 										</td>

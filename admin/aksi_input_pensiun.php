@@ -36,11 +36,11 @@ foreach ($files as $key => $file) {
         $ukuran = $file['size'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         if (!in_array($ext, $ekstensi)) {
-            header("location:detail_pensiun.php?id='$id'&alert=gagal_ekstensi");
+            header("location:form_berkas_pensiun.php?id='$id'&alert=gagal_ekstensi");
         }
 
         if ($ukuran > (5 * 1024 * 1024)) {
-            header("location:detail_pensiun.php?id='$id'&alert=gagal_ukuran");
+            header("location:form_berkas_pensiun.php?id='$id'&alert=gagal_ukuran");
         }
     }
 }
