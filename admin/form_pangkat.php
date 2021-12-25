@@ -82,6 +82,17 @@ if (isset($_GET['pesan'])) {
 			<?php
 		}
 		}
+
+		$id = $_GET['id'];
+		$query = "SELECT pangkat_baru, pangkat_lama FROM pegawai WHERE id='$id' LIMIT 1";
+
+		$result = mysqli_query($koneksi, $query);
+
+		if(mysqli_num_rows($result) > 0) {
+			$data = mysqli_fetch_assoc($result);
+		} else {
+			header("location: view_pegawai.php?alert=data_tidak_ada");
+		}
 	?>
 
 	<div id="app">
@@ -170,14 +181,15 @@ if (isset($_GET['pesan'])) {
 
 			<div class="container">
 		<h2 style="text-align: center;">Form Pangkat</h2>
-		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
+		<form action="aksi_pangkat.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?= $_GET['id'] ?>">
 			<div class="form-group">
 				<label for="">Pangkat Baru :</label>
-				<input type="text" min="0" class="form-control" name="nama_lengkap" id="" required="required">
+				<input type="text" min="0" class="form-control" name="pangkat_baru" id="" required="required" value="<?= $data['pangkat_baru'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Pangkat Lama :</label>
-				<input type="text" min="0" class="form-control" name="nip" required="required">
+				<input type="text" min="0" class="form-control" name="pangkat_lama" required="required" value="<?= $data['pangkat_lama'] ?>">
 			</div>
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
 		</form>

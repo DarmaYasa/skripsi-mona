@@ -64,23 +64,33 @@ if (isset($_GET['pesan'])) {
 				Ekstensi Tidak Diperbolehkan
 			</div>
 			<?php
-		} elseif ($_GET['alert'] == "gagal_ukuran") {
-				?>
-			<div class="alert alert-warning alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
-				Ukuran File terlalu Besar
-			</div>
-			<?php
-		} elseif ($_GET['alert'] == "berhasil") {
-				?>
-			<div class="alert alert-success alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Success</h4>
-				Berhasil Disimpan
-			</div>
-			<?php
+			} elseif ($_GET['alert'] == "gagal_ukuran") {
+					?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div>
+				<?php
+			} elseif ($_GET['alert'] == "berhasil") {
+					?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div>
+				<?php
+			}
 		}
+		$id = $_GET['id'];
+		$query = "SELECT masa_kerja_gol_baru, masa_kerja_gol_lama FROM pegawai WHERE id='$id' LIMIT 1";
+
+		$result = mysqli_query($koneksi, $query);
+
+		if(mysqli_num_rows($result) > 0) {
+			$data = mysqli_fetch_assoc($result);
+		} else {
+			header("location: view_pegawai.php?alert=data_tidak_ada");
 		}
 	?>
 
@@ -170,14 +180,15 @@ if (isset($_GET['pesan'])) {
 
 			<div class="container">
 		<h2 style="text-align: center;">Form Masa Kerja</h2>
-		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
+		<form action="aksi_masa_kerja.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?= $_GET['id'] ?>">
 			<div class="form-group">
 				<label for="">Masa Kerja Gol Baru :</label>
-				<input type="number" min="0" class="form-control" name="nama_lengkap" id="" required="required">
+				<input type="number" min="0" class="form-control" name="masa_kerja_gol_baru" id="" required="required" value="<?= $data['masa_kerja_gol_baru'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Masa Kerja Gol Lama :</label>
-				<input type="number" min="0" class="form-control" name="nip" required="required">
+				<input type="number" min="0" class="form-control" name="masa_kerja_gol_lama" required="required" value="<?= $data['masa_kerja_gol_lama'] ?>">
 			</div>
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
 		</form>
