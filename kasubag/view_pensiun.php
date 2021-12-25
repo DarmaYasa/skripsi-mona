@@ -165,7 +165,12 @@
 			<div class="container">
 				<div class="row mb-3">
 					<div class="col col-lg-2">
-
+						<form action="print_pensiun.php">
+							<div class="d-flex">
+								<input type="text" name="year" class="form-control text-left" placeholder="Tahun" value="<?= date('Y') ?>">
+								<button class="btn btn-secondary rounded-0" type="submit">Cetak</button>
+							</div>
+						</form>
 					</div>
 					<div class="col">
 

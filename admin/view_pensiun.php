@@ -146,7 +146,7 @@
 				style="background-color: #63ccc5;color: #63ccc5; height: 80px; margin-bottom: 20px;">
 				<div class="container">
 					<div class="">
-						<h3 class="">Data Pegawai</h3>
+						<h3 class="">Data Pensiun</h3>
 					</div>
 					<div class="row">
 						<div class="col-sm-1 text-end">
@@ -156,7 +156,7 @@
 						</div>
 						>
 						<div class="col text-start">
-							<p>Pegawai</p>
+							<p>Pensiun</p>
 						</div>
 					</div>
 				</div>
@@ -165,7 +165,12 @@
 			<div class="container">
 				<div class="row mb-3">
 					<div class="col col-lg-2">
-
+						<form action="print_pensiun.php">
+							<div class="d-flex">
+								<input type="text" name="year" class="form-control text-left" placeholder="Tahun" value="<?= date('Y') ?>">
+								<button class="btn btn-secondary rounded-0" type="submit">Cetak</button>
+							</div>
+						</form>
 					</div>
 					<div class="col">
 

@@ -170,7 +170,7 @@
 
                     <?php
                     $id = $_GET["id"];
-					$data = "SELECT pegawai.*, berkas_pensiun.* FROM pegawai LEFT JOIN berkas_pensiun ON pegawai.id=berkas_pensiun.id_pegawai WHERE pegawai.id='$id' LIMIT 1";
+					$data = "SELECT pegawai.*, berkas_pensiun.* FROM pegawai LEFT JOIN berkas_pensiun ON pegawai.id=berkas_pensiun.id_pensiun WHERE pegawai.id='$id' LIMIT 1";
 					$sql_d = mysqli_query($koneksi, $data);
 					$row_d = mysqli_num_rows($sql_d);
 

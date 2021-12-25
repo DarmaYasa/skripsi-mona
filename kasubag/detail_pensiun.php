@@ -231,7 +231,7 @@
 							</tr>
 						</table>
 						<div class="text-end">
-							<a href="detail_berkas_pensiun.php?id=<?= $data['id_pegawai'] ?>" class="btn btn-warning rounded-0 mr-2">Berkas Pensiun</a>
+							<a href="detail_berkas_pensiun.php?id=<?= $data['id'] ?>" class="btn btn-warning rounded-0 mr-2">Berkas Pensiun</a>
 							<!-- <a href="input_pensiun.php?id=<?= $data['id_pegawai'] ?>" class="btn btn-success rounded-0">Ubah Data</a> -->
 						</div>
 					</div>

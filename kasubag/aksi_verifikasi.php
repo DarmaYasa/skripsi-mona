@@ -6,6 +6,6 @@
 
     $terverifikasi = $_POST['terverifikasi'];
     
-    mysqli_query($koneksi, "UPDATE berkas_pensiun SET terverifikasi='$terverifikasi' WHERE id_pegawai=$id");
+    mysqli_query($koneksi, "UPDATE berkas_pensiun SET terverifikasi='$terverifikasi' WHERE id_pensiun=$id");
     header("location:view_pensiun.php?alert=Berhasil");
 ?>

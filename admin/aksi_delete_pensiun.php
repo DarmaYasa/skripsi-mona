@@ -4,7 +4,7 @@ include '../auth/cek_session.php';
 
 $id = $_POST['id'];
 
-$query = "DELETE FROM berkas_pensiun WHERE id_pegawai='$id'";
+$query = "DELETE FROM berkas_pensiun WHERE id_pensiun='$id'";
 
 if (mysqli_query($koneksi, $query)) {
     header("location:view_pensiun.php?alert=berhasil");
