@@ -185,10 +185,10 @@ if (isset($_GET['pesan'])) {
 		<form action="aksi_update.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>Foto :</label>
-				<input type="file" name="foto" required="required">
+				<input type="file" name="foto">
 				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
 			</div>
-			<input type="hidden" name="foto" id="" required="required" value="<?= $data['foto'] ?>">
+			<input type="hidden" name="foto" id="" required="required" value="<?= $data['nama_gambar'] ?>">
 			<div class="form-group">
 				<label for="">Nama Lengkap :</label>
 				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $data['nama_lengkap'] ?>">
@@ -211,7 +211,7 @@ if (isset($_GET['pesan'])) {
 				<select name="jenis_kelamin" required class="form-control">
 					<option value="" disabled selected>-Pilih Jenis Kelamin-</option>
 					<option value="Perempuan" <?= $data['jenis_kelamin'] == 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
-					<option value="Laki - laki" <?= $data['jenis_kelamin'] == 'Laki - laku' ? 'selected' : '' ?>>Laki - laki</option>
+					<option value="Laki - laki" <?= $data['jenis_kelamin'] == 'Laki - laki' ? 'selected' : '' ?>>Laki - laki</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -231,10 +231,6 @@ if (isset($_GET['pesan'])) {
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Masa Jabatan :</label>
-				<input type="date" class="form-control" name="masa_jabatan" required="required" value="<?= $data['masa_jabatan'] ?>">
-			</div>
-			<div class="form-group">
 				<label>Tempat Tugas :</label>
 				<input type="text" class="form-control" name="tempat_tugas" required="required" value="<?= $data['tempat_tugas'] ?>">
 			</div>
@@ -247,8 +243,24 @@ if (isset($_GET['pesan'])) {
 				<input type="text" class="form-control" name="golongan" required="required" value="<?= $data['golongan'] ?>">
 			</div>
 			<div class="form-group">
-				<label>Gaji Pokok :</label>
-				<input type="number" class="form-control" name="gaji_pokok" required="required" value="<?= $data['gaji_pokok'] ?>">
+				<label>Jabatan :</label>
+				<input type="text" class="form-control" name="jabatan" required="required" value="<?= $data['jabatan'] ?>">
+			</div>
+			<div class="form-group">
+				<label>Eselon :</label>
+				<input type="text" class="form-control" name="eselon" required="required" value="<?= $data['eselon'] ?>">
+			</div>
+			<div class="form-group">
+				<label>Pendidikan :</label>
+				<input type="text" class="form-control" name="pendidikan" required="required" value="<?= $data['pendidikan'] ?>">
+			</div>
+			<div class="form-group">
+				<label>Telepon :</label>
+				<input type="tel" class="form-control" name="telepon" required="required" value="<?= $data['telepon'] ?>">
+			</div>
+			<div class="form-group">
+				<label>Alamat :</label>
+				<textarea name="alamat" rows="5" class="form-control" required><?= $data['alamat'] ?></textarea>
 			</div>
 			<!-- <input type="submit" name="" value="Hapus" formaction="aksi_delete.php" class="btn btn-danger mr-2"> -->
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">

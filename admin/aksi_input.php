@@ -10,11 +10,14 @@ $tanggal_lahir = $_POST['tanggal_lahir'];
 $jenis_kelamin = $_POST['jenis_kelamin'];
 $status = $_POST['status'];
 $agama = $_POST['agama'];
-$masa_jabatan = $_POST['masa_jabatan'];
 $tempat_tugas = $_POST['tempat_tugas'];
 $no_sk_pensiun = $_POST['no_sk_pensiun'];
 $golongan = $_POST['golongan'];
-$gaji_pokok = $_POST['gaji_pokok'];
+$jabatan = $_POST['jabatan'];
+$eselon = $_POST['eselon'];
+$pendidikan = $_POST['pendidikan'];
+$telepon = $_POST['telepon'];
+$alamat = $_POST['alamat'];
 
 $rand = rand();
 $ekstensi =  array('png','jpg','jpeg','gif');
@@ -28,7 +31,7 @@ if(!in_array($ext,$ekstensi) ) {
 	if($ukuran < 1044070){		
 		$xx = $rand.'_'.$filename;
 		move_uploaded_file($_FILES['foto']['tmp_name'], '../gambar/'.$rand.'_'.$filename);
-		mysqli_query($koneksi, "INSERT INTO pegawai VALUES(NULL,'$xx','$nama_lengkap','$nip','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$status','$agama','$masa_jabatan','$tempat_tugas','$no_sk_pensiun','$golongan','$gaji_pokok')");
+		mysqli_query($koneksi, "INSERT INTO pegawai (`nama_gambar`, `nama_lengkap`, `nip`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `status`, `agama`, `tempat_tugas`, `no_sk_pensiun`, `golongan`, `jabatan`, `eselon`, `alamat`, `telepon`, `pendidikan`) VALUES('$xx','$nama_lengkap','$nip','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$status','$agama','$tempat_tugas','$no_sk_pensiun','$golongan','$jabatan', '$eselon', '$pendidikan', '$telepon', '$alamat')");
 		header("location:view_pegawai.php?alert=berhasil");
 	}else{
 		header("location:view_pegawai.php?alert=gagal_ukuran");

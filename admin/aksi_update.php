@@ -12,11 +12,14 @@ $jenis_kelamin = $_POST['jenis_kelamin'];
 $foto = $_POST['foto'];
 $status = $_POST['status'];
 $agama = $_POST['agama'];
-$masa_jabatan = $_POST['masa_jabatan'];
 $tempat_tugas = $_POST['tempat_tugas'];
 $no_sk_pensiun = $_POST['no_sk_pensiun'];
 $golongan = $_POST['golongan'];
-$gaji_pokok = $_POST['gaji_pokok'];
+$jabatan = $_POST['jabatan'];
+$eselon = $_POST['eselon'];
+$pendidikan = $_POST['pendidikan'];
+$telepon = $_POST['telepon'];
+$alamat = $_POST['alamat'];
 
 $rand = rand();
 $ekstensi = array('png', 'jpg', 'jpeg', 'gif');
@@ -39,5 +42,5 @@ if ($_FILES['foto']) {
 // echo "UPDATE pegawai SET nama_lengkap='$nama_lengkap', nip='$nip', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', jenis_kelamin='$jenis_kelamin', foto='$foto', `status`='$status', masa_jabatan='$masa_jabatan', tempat_tugas='$tempat_tugas', no_sk_pensiun='$no_sk_pensiun', golongan='$golongan', gaji_pokok='$gaji_pokok' WHERE id=$id";
 
 // die;
-mysqli_query($koneksi, "UPDATE pegawai SET nama_lengkap='$nama_lengkap', nip='$nip', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', jenis_kelamin='$jenis_kelamin', nama_gambar='$foto', `status`='$status', masa_jabatan='$masa_jabatan', tempat_tugas='$tempat_tugas', no_sk_pensiun='$no_sk_pensiun', golongan='$golongan', gaji_pokok='$gaji_pokok' WHERE id=$id");
+mysqli_query($koneksi, "UPDATE pegawai SET nama_lengkap='$nama_lengkap', nip='$nip', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', jenis_kelamin='$jenis_kelamin', nama_gambar='$foto', `status`='$status', tempat_tugas='$tempat_tugas', no_sk_pensiun='$no_sk_pensiun', golongan='$golongan', jabatan='$jabatan', eselon='$eselon', pendidikan='$pendidikan', telepon='$telepon', alamat='$alamat' WHERE id=$id");
 header("location:view_pegawai.php?alert=berhasil");

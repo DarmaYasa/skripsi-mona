@@ -195,7 +195,7 @@
 									<th scope="col">No</th>
 									<th scope="col">Nama</th>
 									<th scope="col">Nip</th>
-									<th scope="col">Masa Jabatan</th>
+									<th scope="col">Golongan</th>
 									<th scope="col">Tempat Tugas</th>
 									<th scope="col">Opsi</th>
 								</tr>
@@ -213,7 +213,7 @@
 									echo "<td>".$no++."</td>";
 									echo "<td>".$d['nama_lengkap']."</td>";
 									echo "<td>".$d['nip']."</td>";
-									echo "<td>".$d['masa_jabatan']."</td>";
+									echo "<td>".$d['golongan']."</td>";
 									echo "<td>".$d['tempat_tugas']."</td>";
 									$id = $d['id'];
 									echo "<td>

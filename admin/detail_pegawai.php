@@ -225,10 +225,6 @@
 											echo "<td>".$d['agama']."</td>";
 										echo "</tr>";
 										echo "<tr>";
-											echo "<th scope='row'>Masa Jabatan</th>";
-											echo "<td>".$d['masa_jabatan']."</td>";
-										echo "</tr>";
-										echo "<tr>";
 											echo "<th scope='row'>Tempat Tugas</th>";
 											echo "<td>".$d['tempat_tugas']."</td>";
 										echo "</tr>";
@@ -241,16 +237,33 @@
 											echo "<td>".$d['golongan']."</td>";
 										echo "</tr>";
 										echo "<tr>";
-											echo "<th scope='row'>Gaji Pokok</th>";
-											echo "<td>".$d['gaji_pokok']."</td>";
+											echo "<th scope='row'>Jabatan</th>";
+											echo "<td>".$d['jabatan']."</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th scope='row'>Eselon</th>";
+											echo "<td>".$d['eselon']."</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th scope='row'>Pendidikan</th>";
+											echo "<td>".$d['pendidikan']."</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th scope='row'>Telepon</th>";
+											echo "<td>".$d['telepon']."</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th scope='row'>Alamat</th>";
+											echo "<td>".$d['alamat']."</td>";
 										echo "</tr>";
 									echo "</tbody>";
 								echo "</table>";
 							echo "</div>";
 
-							echo "<div class='text-end'>";
+							echo "<div class='text-end space-x-2'>";
 								$action = "return comfim('Yakin ingin menghapus data?')";
-								echo "<form class='d-inline' style='margin-right: 2px' action='aksi_delete.php' method='POST'><input type='hidden' name='id' value='$id' /><input type='submit' class='btn btn-danger rounded-0 mr-2' value='Delete Data' id='deleteButton' onclick='deleteData()' /></form>";
+								echo "<form class='d-inline mr-2' style='margin-right: .25rem' action='aksi_delete.php' method='POST'><input type='hidden' name='id' value='$id' /><input type='submit' class='btn btn-danger rounded-0 mr-2' value='Delete Data' id='deleteButton' onclick='deleteData()' /></form>";
+								echo "<a class='btn btn-warning rounded-0 mr-2' style='margin-right: .25rem' href='input_pensiun.php?id=" . $id . "'>Data Pensiun</a>";
 								echo "<a class='btn btn-success rounded-0' href='edit_pegawai.php?id=" . $id . "'>Ubah Data</a>";
 							echo "</div>";
 

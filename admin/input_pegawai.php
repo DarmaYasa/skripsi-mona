@@ -217,10 +217,6 @@ if (isset($_GET['pesan'])) {
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Masa Jabatan :</label>
-				<input type="date" class="form-control" name="masa_jabatan" required="required">
-			</div>
-			<div class="form-group">
 				<label>Tempat Tugas :</label>
 				<input type="text" class="form-control" name="tempat_tugas" required="required">
 			</div>
@@ -233,8 +229,24 @@ if (isset($_GET['pesan'])) {
 				<input type="text" class="form-control" name="golongan" required="required">
 			</div>
 			<div class="form-group">
-				<label>Gaji Pokok :</label>
-				<input type="number" class="form-control" name="gaji_pokok" required="required">
+				<label>Jabatan :</label>
+				<input type="text" class="form-control" name="jabatan" required="required">
+			</div>
+			<div class="form-group">
+				<label>Eselon :</label>
+				<input type="text" class="form-control" name="eselon" required="required">
+			</div>
+			<div class="form-group">
+				<label>Pendidikan :</label>
+				<input type="text" class="form-control" name="pendidikan" required="required">
+			</div>
+			<div class="form-group">
+				<label>Telepon :</label>
+				<input type="tel" class="form-control" name="telepon" required="required">
+			</div>
+			<div class="form-group">
+				<label>Alamat :</label>
+				<textarea name="alamat" rows="5" class="form-control" required></textarea>
 			</div>
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
 		</form>
