@@ -199,7 +199,7 @@
 
 							<?php 
 								$no = 1;
-								$query = "SELECT * FROM pegawai WHERE nama_lengkap LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%' AND DATE(masa_jabatan) <= DATE(NOW())";
+								$query = "SELECT * FROM pensiun WHERE nama LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%'";
 								// echo $query;
 								$sql = mysqli_query($koneksi, $query);
 								$row = mysqli_num_rows($sql);
@@ -207,7 +207,7 @@
 								while($d = mysqli_fetch_array($sql)){
 									echo "<tr>";
 									echo "<td>".$no++."</td>";
-									echo "<td>".$d['nama_lengkap']."</td>";
+									echo "<td>".$d['nama']."</td>";
 									$id = $d['id'];
 									echo "<td>
 											<a href='detail_pensiun.php?id=$id'>Detail<a>

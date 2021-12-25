@@ -64,23 +64,41 @@ if (isset($_GET['pesan'])) {
 				Ekstensi Tidak Diperbolehkan
 			</div>
 			<?php
-		} elseif ($_GET['alert'] == "gagal_ukuran") {
-				?>
-			<div class="alert alert-warning alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
-				Ukuran File terlalu Besar
-			</div>
-			<?php
-		} elseif ($_GET['alert'] == "berhasil") {
-				?>
-			<div class="alert alert-success alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Success</h4>
-				Berhasil Disimpan
-			</div>
-			<?php
+			} elseif ($_GET['alert'] == "gagal_ukuran") {
+					?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div>
+				<?php
+			} elseif ($_GET['alert'] == "berhasil") {
+					?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div>
+				<?php
+			}
 		}
+
+		$id = $_GET['id'];
+		$query = "SELECT * FROM pegawai WHERE id='$id' LIMIT 1";
+
+		$result = mysqli_query($koneksi, $query);
+
+		if(mysqli_num_rows($result) > 0) {
+			$pegawai = mysqli_fetch_assoc($result);
+		} else {
+			header("location: view_pegawai.php?alert=data_tidak_ada");
+		}
+
+		$query = "SELECT * FROM pensiun WHERE id_pegawai=$id LIMIT 1";
+		$result = mysqli_query($koneksi, $query);
+
+		if(mysqli_num_rows($result) > 0) {
+			$pensiun = mysqli_fetch_assoc($result);
 		}
 	?>
 
@@ -148,7 +166,7 @@ if (isset($_GET['pesan'])) {
 				style="background-color: #63ccc5;color: #63ccc5; height: 80px; margin-bottom: 20px;">
 				<div class="container">
 					<div class="">
-						<h3 class="">Form Pangkat</h3>
+						<h3 class="">Form Pensiun</h3>
 					</div>
 					<div class="row">
 						<div class="col-sm-1 text-end">
@@ -162,60 +180,62 @@ if (isset($_GET['pesan'])) {
 								<a href="view_pegawai.php">
 									<font color="black">Pegawai</font>
 								</a>
-								 &nbsp > &nbsp Form Pangkat</p>
+								 &nbsp > &nbsp Form Pensiun</p>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="container">
-		<h2 style="text-align: center;">Form Pangkat</h2>
-		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
+		<h2 style="text-align: center;">Form Pensiun</h2>
+		<form action="aksi_pensiun.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?= $id ?>" required>
+			<input type="hidden" name="id_pensiun" value="<?= isset($pensiun) ? $pensiun['id'] : ''?>">
 			<div class="form-group mb-2">
 				<label class="mb-1" for="">NIP :</label>
-				<input type="text" min="0" class="form-control" name="nip" id="" required="required">
+				<input type="text" min="0" class="form-control" name="nip" id="" required="required" readonly value="<?= $pegawai['nip'] ?>">
 			</div>
 			<div class="form-group mb-2">
 				<label class="mb-1">Nama :</label>
-				<input type="text" min="0" class="form-control" name="nama_lengkap" required="required">
+				<input type="text" min="0" class="form-control" name="nama_lengkap" required="required" readonly value="<?= $pegawai['nama_lengkap'] ?>">
 			</div>
 			<div class="form-group mb-2">
 				<label class="mb-1">Unit Kerja :</label>
-				<input type="text" min="0" class="form-control" name="unit_kerja" required="required">
+				<input type="text" min="0" class="form-control" name="unit_kerja" required="required" value="<?= isset($pensiun) ? $pensiun['unit_kerja'] : '' ?>">
 			</div>
 			<div class="form-group mb-2">
                 <label class="mb-1">Status :</label>
                 <select name="status" class="form-control" required>
                     <option value="" disabled selected>-Pilih Status-</option>
-                    <option value="1">Aktif</option>
-                    <option value="2">Pensiun</option>
+                    <option value="1" <?= isset($pensiun) && $pensiun['status'] == '1' ? 'selected' : '' ?>>Aktif</option>
+                    <option value="2" <?= isset($pensiun) && $pensiun['status'] == '2' ? 'selected' : '' ?>>Pensiun</option>
                 </select>
 			</div>
             <div class="form-group mb-2">
                 <label class="mb-1">Alamat :</label>
-                <textarea name="alamat" class="form-control" rows="5"></textarea>
+                <textarea name="alamat" class="form-control" rows="5"><?= isset($pensiun) ? $pensiun['alamat_pensiun'] : '' ?></textarea>
 			</div>
             <div class="form-group mb-2">
                 <label class="mb-1">Berhenti Akhir Bulan :</label>
-                <input type="month" class="form-control" name="berhenti_akhir_bulan" required="required">
+                <input type="month" class="form-control" name="berhenti_akhir_bulan" required="required" value="<?= isset($pensiun) ? $pensiun['berhenti_akhir_bulan'] : '' ?>">
 			</div>
             <div class="form-group mb-2">
                 <label class="mb-1">Tanggal Pensiun :</label>
-                <input type="date" class="form-control" name="tanggal_pensiun" required="required">
+                <input type="date" class="form-control" name="tanggal_pensiun" required="required" value="<?= isset($pensiun) ? $pensiun['tanggal_pensiun'] : '' ?>">
 			</div>
             <div class="form-group mb-2">
                 <label class="mb-1">Masa Kerja Pensiun :</label>
-                <input type="number" class="form-control" name="masa_kerja_pensiun" required="required">
+                <input type="number" class="form-control" name="masa_kerja_pensiun" required="required" value="<?= isset($pensiun) ? $pensiun['masa_kerja_pensiun'] : '' ?>">
 			</div>
             <div class="form-group mb-2">
                 <label class="mb-1">Gaji Pokok :</label>
-                <input type="number" class="form-control" name="gaji_pokok" required="required">
+                <input type="number" class="form-control" name="gaji_pokok" required="required" value="<?= isset($pensiun) ? $pensiun['gaji_pokok'] : '' ?>">
 			</div>
             <div class="form-group mb-2">
                 <label class="mb-1">Keteragan :</label>
-                <textarea name="keterangan" class="form-control" rows="5"></textarea>
+                <textarea name="keterangan" class="form-control" rows="5"><?= isset($pensiun) ? $pensiun['keterangan'] : '' ?></textarea>
 			</div>
-			<input type="submit" name="" value="Simpan" class="btn btn-primary">
+			<input type="submit" name="" value="Simpan" class="btn btn-primary mb-5">
 		</form>
 	</div>
 
