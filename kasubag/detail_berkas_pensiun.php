@@ -274,7 +274,7 @@
 
                             echo "</form>";
 
-                            $nama_lengkap = $d['nama_lengkap'];
+                            // $nama_lengkap = $d['nama_lengkap'];
                             }
                         }else{ 
                             echo "<tr><td colspan='4'>Data tidak ada</td></tr>";
