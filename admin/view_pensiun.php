@@ -99,6 +99,10 @@
 								<p class="text-dark">Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</p>
 							</div>
 						</div>
+						<div class="col-sm-7"></div>
+						<div class="col-sm-1">
+							<?php include 'notif.php'; ?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -233,5 +237,11 @@
 	</div>
 
 	<!-- Bootstrap Bundle with Popper -->
-	<script src="./dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+// 		var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+// var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+//   return new bootstrap.Dropdown(dropdownToggleEl)
+// })
+	</script>
 </body>

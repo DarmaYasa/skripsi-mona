@@ -112,6 +112,10 @@ if (isset($_GET['pesan'])) {
 								<p class="text-dark">Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</p>
 							</div>
 						</div>
+						<div class="col-sm-7"></div>
+						<div class="col-sm-1">
+							<?php include 'notif.php'; ?>
+						</div>
 					</div>
 				</div>
 			</div>
