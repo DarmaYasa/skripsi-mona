@@ -204,5 +204,5 @@ if (isset($_GET['pesan'])) {
 	</div>
 
 	<!-- Bootstrap Bundle with Popper -->
-	<script src="./dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../dist/js/bootstrap.bundle.min.js"></script>
 </body>
