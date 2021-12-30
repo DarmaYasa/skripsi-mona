@@ -27,7 +27,7 @@ $filename = $_FILES['foto']['name'];
 $ukuran = $_FILES['foto']['size'];
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-if ($_FILES['foto']) {
+if ($_FILES['foto']['name'] != '') {
 
     if (!in_array($ext, $ekstensi)) {
         header("location:view_pegawai.php?alert=gagal_ekstensi");

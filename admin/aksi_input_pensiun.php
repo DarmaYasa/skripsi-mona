@@ -31,26 +31,28 @@ if (mysqli_num_rows($check) > 0) {
 }
 
 foreach ($files as $key => $file) {
-    if ($file || !isset($$key)) {
+    if ($file['name'] != '' || !isset($$key)) {
         $filename = $file['name'];
         $ukuran = $file['size'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         if (!in_array($ext, $ekstensi)) {
-            header("location:form_berkas_pensiun.php?id='$id'&alert=gagal_ekstensi");
+            header("location:form_berkas_pensiun.php?id=$id&alert=gagal_ekstensi");
         }
 
         if ($ukuran > (5 * 1024 * 1024)) {
-            header("location:form_berkas_pensiun.php?id='$id'&alert=gagal_ukuran");
+            header("location:form_berkas_pensiun.php?id=$id&alert=gagal_ukuran");
         }
     }
 }
 
 foreach ($files as $key => $file) {
-    if (!file_exists('../upload/' . $key)) {
-        mkdir('../upload/' . $key, 0777, true);
+    if ($file['name'] != '') {
+        if (!file_exists('../upload/' . $key)) {
+            mkdir('../upload/' . $key, 0777, true);
+        }
+        $$key = '../upload/' . $key . '/' . time() . '_' . $key . '.pdf';
+        move_uploaded_file($file['tmp_name'], $$key);
     }
-    $$key = '../upload/' . $key . '/' . time() . '_' . $key . '.pdf';
-    move_uploaded_file($file['tmp_name'], $$key);
 }
 
 if ($hasData) {
