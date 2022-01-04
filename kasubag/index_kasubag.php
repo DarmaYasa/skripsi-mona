@@ -50,11 +50,12 @@
     </style>
 </head>
 
-<body>
+<body style="background-image: url('../dist/img/bg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; margin: 0; padding: 0">
 
-    <div id="app">
 
-        <nav class="navbar-light bg-light">
+    <div id="app" style="z-index: 100 !important; position: relative">
+
+        <nav class="navbar-light bg-light" style="border-bottom: 3px solid #eaeaea">
             <div class="container">
                 <div class="mt-2">
                     <div class="row">
@@ -69,12 +70,16 @@
                                 <p class="text-dark">Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</p>
                             </div>
                         </div>
+                        <div class="col-sm-7"></div>
+						<div class="col-sm-1">
+							<!-- <?php include '../admin/notif.php';?> -->
+						</div>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <hr class="hr-line">
+        <!-- <hr class="hr-line" style="border-top: 2px solid #eaeaea"> -->
 
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="container">
@@ -87,8 +92,8 @@
                 <div class="collapse navbar-collapse"></div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                <ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
 							<a class="nav-link text-dark" href="index.php">Beranda</a>
 						</li>
 						<li class="nav-item">
@@ -98,22 +103,22 @@
 							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
 						</li> -->
 						<li class="nav-item">
-							<a class="nav-link text-dark" href="#">Tentang</a>
+							
 						</li>
 						<li class="nav-item">
                             <a class="nav-link text-danger" href="../auth/logout.php">Logout</a>
                         </li>
-                    </ul>
+					</ul>
                 </div>
             </div>
         </nav>
 
-        <main class="">
+        <main class="" >
             <div class="container">
                 <div class="text-center mt-5">
                     <img src="../dist/img//logo-1.png" width="30%" class="rounded" alt="...">
                 </div>
-                <div class="text-center mt-3">
+                <div class="text-center mt-3" >
                     <h1>SELAMAT DATANG DI WEBSITE</h1>
                     <h3>Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</h3>
                 </div>
@@ -121,6 +126,8 @@
         </main>
 
     </div>
+
+    <div style="background: rgba(255,255,255, .8); min-height: 100vh; min-width: 100%; position: fixed; top: 0"></div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="../dist/js/bootstrap.bundle.min.js"></script>

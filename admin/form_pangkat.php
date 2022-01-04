@@ -145,7 +145,7 @@ if (isset($_GET['pesan'])) {
 							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" href="#">Tentang</a>
+							
 						</li>
 						<li class="nav-item">
                             <a class="nav-link text-danger" href="../auth/logout.php">Logout</a>

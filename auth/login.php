@@ -44,30 +44,32 @@
 			}
 	</style>
 </head>
-<body>
+<body style="height: 100vh">
 	
-<div class="container">
-    <div class="text-center">
-        <img src="../dist/img/user-1.png" width="200px" height="200px" class="rounded" alt="...">
-    </div>
-    <div class="text-center">
-
-        <form action="cek_login.php" method="post">
-            <div class="mb-3 mt-3 d-flex justify-content-center">
-                <div class="">   
-                    <input type="text" name="username" class="form-control" id="exampleInputUsername1" placeholder="USERNAME">
-                </div>
-            </div>
-
-            <div class="mb-3 d-flex justify-content-center">
-                <div class="">
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
-                </div>
-            </div>
-            <input type="submit" class="btn btn-primary rounded-0" value="LOGIN">
-        </form>
-        
-    </div>
+<div class="container h-100 w-100">
+	<div class="d-flex justify-content-center align-items-center h-100 w-100 flex-column">
+		<div class="text-center">
+			<img src="../dist/img/user-1.png" width="200px" height="200px" class="rounded" alt="...">
+		</div>
+		<div class="text-center">
+	
+			<form action="cek_login.php" method="post">
+				<div class="mb-3 mt-3 d-flex justify-content-center">
+					<div class="">   
+						<input type="text" name="username" class="form-control" id="exampleInputUsername1" placeholder="USERNAME">
+					</div>
+				</div>
+	
+				<div class="mb-3 d-flex justify-content-center">
+					<div class="">
+						<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
+					</div>
+				</div>
+				<input type="submit" class="btn btn-primary rounded-0" value="LOGIN">
+			</form>
+			
+		</div>
+	</div>
 </div> 
 	
 	<!-- Bootstrap Bundle with Popper -->

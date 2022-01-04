@@ -117,8 +117,8 @@
                 <div class="collapse navbar-collapse"></div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                <ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
 							<a class="nav-link text-dark" href="index.php">Beranda</a>
 						</li>
 						<li class="nav-item">
@@ -128,12 +128,12 @@
 							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
 						</li> -->
 						<li class="nav-item">
-							<a class="nav-link text-dark" href="#">Tentang</a>
+							
 						</li>
 						<li class="nav-item">
                             <a class="nav-link text-danger" href="../auth/logout.php">Logout</a>
                         </li>
-                    </ul>
+					</ul>
                 </div>
             </div>
         </nav>

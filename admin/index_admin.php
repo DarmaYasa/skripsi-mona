@@ -1,11 +1,12 @@
-<?php include '../env.php'; include '../auth/cek_session.php'; include 'cek_level.php'; ?>
+<?php include '../env.php';include '../auth/cek_session.php';include 'cek_level.php';?>
 
-<?php 
-	if(isset($_GET['pesan'])){
-		if($_GET['pesan']=="gagal"){
-			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
-		}
-	}
+<?php
+
+if (isset($_GET['pesan'])) {
+    if ($_GET['pesan'] == "gagal") {
+        echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,11 +51,12 @@
     </style>
 </head>
 
-<body>
+<body style="background-image: url('../dist/img/bg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; margin: 0; padding: 0">
 
-    <div id="app">
 
-        <nav class="navbar-light bg-light">
+    <div id="app" style="z-index: 100 !important; position: relative">
+
+        <nav class="navbar-light bg-light" style="border-bottom: 3px solid #eaeaea">
             <div class="container">
                 <div class="mt-2">
                     <div class="row">
@@ -71,14 +73,14 @@
                         </div>
                         <div class="col-sm-7"></div>
 						<div class="col-sm-1">
-							<?php include 'notif.php'; ?>
+							<?php include 'notif.php';?>
 						</div>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <hr class="hr-line">
+        <!-- <hr class="hr-line" style="border-top: 2px solid #eaeaea"> -->
 
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="container">
@@ -102,7 +104,7 @@
                             <a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#">Tentang</a>
+                            
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-danger" href="../auth/logout.php">Logout</a>
@@ -112,12 +114,12 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="" >
             <div class="container">
                 <div class="text-center mt-5">
                     <img src="../dist/img//logo-1.png" width="30%" class="rounded" alt="...">
                 </div>
-                <div class="text-center mt-3">
+                <div class="text-center mt-3" >
                     <h1>SELAMAT DATANG DI WEBSITE</h1>
                     <h3>Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</h3>
                 </div>
@@ -125,6 +127,8 @@
         </main>
 
     </div>
+
+    <div style="background: rgba(255,255,255, .8); min-height: 100vh; min-width: 100%; position: fixed; top: 0"></div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="../dist/js/bootstrap.bundle.min.js"></script>
