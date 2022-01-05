@@ -16,21 +16,22 @@ $masa_kerja_pensiun = $_POST['masa_kerja_pensiun'];
 $gaji_pokok = $_POST['gaji_pokok'];
 $keterangan = $_POST['keterangan'];
 
-echo $id_pensiun;
-
-if($id_pensiun != '') {
+if ($id_pensiun != '') {
     $query = "UPDATE pensiun SET nip='$nip', nama='$nama_lengkap', unit_kerja='$unit_kerja', `status`='$status', alamat_pensiun='$alamat', berhenti_akhir_bulan='$berhenti_akhir_bulan', tanggal_pensiun='$tanggal_pensiun', masa_kerja_pensiun='$masa_kerja_pensiun', gaji_pokok='$gaji_pokok', keterangan='$keterangan' WHERE id_pegawai='$id'";
 } else {
+    $query = "SELECT id FROM pensiun WHERE nip='$nip'";
+    $result = mysqli_query($koneksi, $query);
+    if (mysqli_num_rows($result) > 0) {
+        header("location:view_pensiun.php?alert=data_sudah_ada");
+        return;
+    }
     $query = "INSERT INTO pensiun VALUES(NULL, '$id', '$nip', '$nama_lengkap', '$unit_kerja', '$status', '$alamat', '$berhenti_akhir_bulan', '$tanggal_pensiun', '$masa_kerja_pensiun', '$gaji_pokok', '$keterangan')";
 }
 
 echo $query;
 
-if(mysqli_query($koneksi, $query)) {
-    header("location: view_pensiun.php?alert=Berhasil");
+if (mysqli_query($koneksi, $query)) {
+    header("location: view_pensiun.php?alert=berhasil");
 } else {
-    header("location: detail_pegawai.php?alert=Gagal");
+    header("location: view_pensiun.php?alert=gagal");
 }
-
-
-

@@ -70,6 +70,14 @@
 			Ukuran File terlalu Besar
 		</div>
 		<?php
+			}elseif($_GET['alert']=="data_sudah_ada"){
+				?>
+		<div class="alert alert-warning alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+			Data sudah ada
+		</div>
+		<?php
 			}elseif($_GET['alert']=="berhasil"){
 				?>
 		<div class="alert alert-success alert-dismissible">

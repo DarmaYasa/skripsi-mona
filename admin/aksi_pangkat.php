@@ -10,7 +10,7 @@ $id = $_POST['id'];
 $query = "UPDATE pegawai SET pangkat_baru='$pangkat_baru', pangkat_lama='$pangkat_lama' WHERE id='$id'";
 
 if (mysqli_query($koneksi, $query)) {
-    header("location: detail_pegawai.php?id=$id&alert=Berhasil");
+    header("location: detail_pegawai.php?id=$id&alert=berhasil");
 } else {
     header("location: detail_pegawai.php?id=$id&alert=gagal");
 }
