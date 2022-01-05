@@ -21,6 +21,13 @@ $pendidikan = $_POST['pendidikan'];
 $telepon = $_POST['telepon'];
 $alamat = $_POST['alamat'];
 
+$query = "SELECT id FROM pensiun WHERE nip='$nip' AND id!=$id";
+$result = mysqli_query($koneksi, $query);
+if (mysqli_num_rows($result) > 0) {
+    header("location:view_pegawai.php?alert=data_sudah_ada");
+    return;
+}
+
 $rand = rand();
 $ekstensi = array('png', 'jpg', 'jpeg', 'gif');
 $filename = $_FILES['foto']['name'];

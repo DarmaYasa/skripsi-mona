@@ -17,6 +17,12 @@ $gaji_pokok = $_POST['gaji_pokok'];
 $keterangan = $_POST['keterangan'];
 
 if ($id_pensiun != '') {
+    $query = "SELECT id FROM pensiun WHERE nip='$nip' AND id!=$id_pensiun";
+    $result = mysqli_query($koneksi, $query);
+    if (mysqli_num_rows($result) > 0) {
+        header("location:view_pensiun.php?alert=data_sudah_ada");
+        return;
+    }
     $query = "UPDATE pensiun SET nip='$nip', nama='$nama_lengkap', unit_kerja='$unit_kerja', `status`='$status', alamat_pensiun='$alamat', berhenti_akhir_bulan='$berhenti_akhir_bulan', tanggal_pensiun='$tanggal_pensiun', masa_kerja_pensiun='$masa_kerja_pensiun', gaji_pokok='$gaji_pokok', keterangan='$keterangan' WHERE id_pegawai='$id'";
 } else {
     $query = "SELECT id FROM pensiun WHERE nip='$nip'";
