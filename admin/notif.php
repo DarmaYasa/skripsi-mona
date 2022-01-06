@@ -1,6 +1,7 @@
 
 <?php
-    $query = "SELECT pegawai.id, pegawai.nama_lengkap, pegawai.tanggal_lahir, pensiun.tanggal_pensiun FROM pegawai LEFT JOIN pensiun ON pegawai.id=pensiun.id_pegawai LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE (DATEDIFF(CURDATE(), pegawai.tanggal_lahir) > 21079 OR DATEDIFF(pensiun.tanggal_pensiun, CURDATE()) < 91) AND berkas_pensiun.id IS null";
+    $year = date('Y');
+    $query = "SELECT pegawai.id, pegawai.nama_lengkap, pegawai.tanggal_lahir, pensiun.tanggal_pensiun FROM pegawai LEFT JOIN pensiun ON pegawai.id=pensiun.id_pegawai LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE (DATEDIFF(CURDATE(), pegawai.tanggal_lahir) > 21079 OR DATEDIFF(pensiun.tanggal_pensiun, CURDATE()) < 91) AND YEAR(pensiun.tanggal_pensiun) = '$year' AND berkas_pensiun.id IS null";
     $result = mysqli_query($koneksi, $query);
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
