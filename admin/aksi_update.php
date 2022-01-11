@@ -21,8 +21,9 @@ $pendidikan = $_POST['pendidikan'];
 $telepon = $_POST['telepon'];
 $alamat = $_POST['alamat'];
 
-$query = "SELECT id FROM pensiun WHERE nip='$nip' AND id!=$id";
+$query = "SELECT id FROM pegawai WHERE nip='$nip' AND id!=$id";
 $result = mysqli_query($koneksi, $query);
+
 if (mysqli_num_rows($result) > 0) {
     header("location:view_pegawai.php?alert=data_sudah_ada");
     return;
