@@ -1,16 +1,17 @@
 
 <?php
     $year = date('Y');
-    $query = "SELECT pegawai.id, pegawai.nama_lengkap, pegawai.tanggal_lahir, pensiun.tanggal_pensiun FROM pegawai LEFT JOIN pensiun ON pegawai.id=pensiun.id_pegawai LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE (DATEDIFF(CURDATE(), pegawai.tanggal_lahir) > 21079 OR DATEDIFF(pensiun.tanggal_pensiun, CURDATE()) < 91) AND YEAR(pensiun.tanggal_pensiun) = '$year' AND berkas_pensiun.id IS null";
+    $query = "SELECT pegawai.id, pegawai.nama_lengkap, pegawai.tanggal_lahir, pensiun.tanggal_pensiun FROM pegawai LEFT JOIN pensiun ON pegawai.id=pensiun.id_pegawai LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE (DATEDIFF(CURDATE(), pegawai.tanggal_lahir) > 21079 OR DATEDIFF(pensiun.tanggal_pensiun, CURDATE()) < 91) AND berkas_pensiun.id IS null";
+    // $query = "SELECT pegawai.id, pegawai.nama_lengkap, pegawai.tanggal_lahir, pensiun.tanggal_pensiun FROM pegawai LEFT JOIN pensiun ON pegawai.id=pensiun.id_pegawai LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE (DATEDIFF(CURDATE(), pegawai.tanggal_lahir) > 21079 OR DATEDIFF(pensiun.tanggal_pensiun, CURDATE()) < 91) AND YEAR(pensiun.tanggal_pensiun) = '$year' AND berkas_pensiun.id IS null";
     $result = mysqli_query($koneksi, $query);
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $dataNotif = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <div class="dropdown">
   <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa fa-bell" aria-hidden="true"></i>
   </button>
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" style="max-height: 500px; overflow-y: auto;">
-      <?php foreach($data as $item): ?>
+      <?php foreach($dataNotif as $item): ?>
         <?php 
             $tanggal_lahir_timestamp = strtotime($item['tanggal_lahir']);
             $tanggal_pensiun_timestamp = strtotime($item['tanggal_pensiun']);
