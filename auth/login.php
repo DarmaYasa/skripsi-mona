@@ -49,10 +49,17 @@
 <div class="container h-100 w-100">
 	<div class="d-flex justify-content-center align-items-center h-100 w-100 flex-column">
 		<div class="text-center">
-			<img src="../dist/img/user-1.png" width="200px" height="200px" class="rounded" alt="...">
+			<img src="../dist/img//logo-1.png" width="200px" height="200px" class="rounded" alt="...">
 		</div>
+		<br>
 		<div class="text-center">
-	
+			<?php 
+				if(isset($_SESSION['pesan_login']) && $_SESSION['pesan_login'] != ''):
+			?>
+				<div class="alert alert-danger" role="alert">
+					<?= $_SESSION['pesan_login']; ?>
+				</div>
+			<?php endif; ?>
 			<form action="cek_login.php" method="post">
 				<div class="mb-3 mt-3 d-flex justify-content-center">
 					<div class="">   

@@ -12,6 +12,7 @@ $password = $_POST['password'];
 
 // menyeleksi data user dengan username dan password yang sesuai
 $login = mysqli_query($koneksi,"select * from user where username='$username' and password='$password'");
+$_SESSION['pesan_login'] = '';
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($login);
 
@@ -43,7 +44,8 @@ if($cek > 0){
 		header("location:login.php?pesan=gagal");
 	}	
 }else{
-	header("location:login.php?pesan=gagal");
+	$_SESSION['pesan_login'] = 'Password atau username salah';
+	header("location:login.php?pesan=Password atau username salah");
 }
 
 ?>
