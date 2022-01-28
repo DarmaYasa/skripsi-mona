@@ -90,6 +90,16 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <?php endif;?>
         </tbody>
     </table>
+
+    <div style="float: right; width: 250px; text-align:center">
+        <p>
+            Badung, <?= date('d F, Y') ?>
+            <br>    
+            Kepala Sub bagian
+        </p>
+
+        <p style="margin-top: 50px">(………………………………………)</p>
+    </div>
     <script>
         window.print();
     </script>
