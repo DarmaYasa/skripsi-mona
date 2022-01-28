@@ -90,8 +90,9 @@ if (isset($_GET['pesan'])) {
                     <img src="../dist/img//logo-1.png" width="30%" class="rounded" alt="...">
                 </div>
                 <div class="text-center mt-3" >
-                    <h1>SELAMAT DATANG DI WEBSITE</h1>
-                    <h3>Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</h3>
+                    <h1>Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</h1>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis blanditiis hic laudantium nihil sunt quos ad rerum aspernatur mollitia quod temporibus repudiandae rem voluptate reiciendis, ab harum aperiam, consequatur nostrum deserunt inventore? Voluptas reprehenderit necessitatibus ex corrupti blanditiis adipisci nam id repellat ut totam! Iusto recusandae ea doloribus cum exercitationem aliquam corrupti dolore accusantium et repellat sunt illo voluptas quam, dicta nisi quasi adipisci pariatur necessitatibus earum! Unde aliquid quos quasi voluptatum, in explicabo laboriosam at est minus molestias ea! Voluptatum molestias fugit corporis culpa blanditiis optio. Reprehenderit deleniti accusantium iure, dignissimos vitae mollitia ad, vero reiciendis, asperiores animi autem!</p>
                 </div>
             </div>
         </main>
