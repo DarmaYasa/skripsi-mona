@@ -1,5 +1,5 @@
 <?php 
-$koneksi = mysqli_connect("localhost","root","","skripsi-mona");
+$koneksi = mysqli_connect("localhost","root","","mona_backup");
  
 // Check connection
 if (mysqli_connect_errno()){

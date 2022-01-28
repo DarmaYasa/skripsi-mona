@@ -112,37 +112,7 @@ if (isset($_GET['pesan'])) {
 
 		<hr class="hr-line">
 
-		<nav class="navbar navbar-expand-sm navbar-light bg-light">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse"></div>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link text-dark" href="index_admin.php">Beranda</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark active" href="view_pegawai.php">Pegawai</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" href="view_pensiun.php">Pensiun</a>
-						</li>
-						<li class="nav-item">
-							
-						</li>
-						<li class="nav-item">
-                            <a class="nav-link text-danger" href="../auth/logout.php">Logout</a>
-                        </li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		<?php include "nav.php" ?>
 
 		<main class="">
 			<div class="jumbotron text-dark" style="background-color: #63ccc5;color: #63ccc5; height: 10px;">

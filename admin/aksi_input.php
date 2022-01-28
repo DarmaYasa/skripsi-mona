@@ -3,6 +3,10 @@
 include '../env.php';
 include '../auth/cek_session.php';
 
+session_start();
+
+$_SESSION['form_pegawai'] = $_POST;
+
 $nama_lengkap = $_POST['nama_lengkap'];
 $nip = $_POST['nip'];
 $tempat_lahir = $_POST['tempat_lahir'];
