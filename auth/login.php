@@ -44,14 +44,26 @@
 			}
 	</style>
 </head>
-<body style="height: 100vh">
+<body style="background-image: url('../dist/img/bg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; margin: 0; padding: 0; height: 100vh">
 	
-<div class="container h-100 w-100">
-	<div class="d-flex justify-content-center align-items-center h-100 w-100 flex-column">
-		<div class="text-center">
+<div class="container h-100 w-100" style="z-index: 100 !important; position: relative">
+	<div class="d-flex justify-content-center align-items-center h-100 w-100 flex-column">	
+		<main class="" >
+            <div class="container">
+                <div class="text-center mt-5">
+                    <img src="../dist/img//logo-1.png" width="30%" class="rounded" alt="...">
+                </div>
+                <div class="text-center mt-3" >
+                    <h1>SELAMAT DATANG DI WEBSITE</h1>
+                    <h3>Dinas Perindustrian dan Tenaga Kerja Kabupaten badung</h3>
+                </div>
+            </div>
+        </main>
+	
+		<!-- <div class="text-center">
 			<img src="../dist/img//logo-1.png" width="200px" height="200px" class="rounded" alt="...">
 		</div>
-		<br>
+		<br> -->
 		<div class="text-center">
 			<?php 
 				if(isset($_SESSION['pesan_login']) && $_SESSION['pesan_login'] != ''):
@@ -78,6 +90,8 @@
 		</div>
 	</div>
 </div> 
+
+<div style="background: rgba(255,255,255, .8); min-height: 100vh; min-width: 100%; position: fixed; top: 0"></div>
 	
 	<!-- Bootstrap Bundle with Popper -->
 	<script src="../dist/js/bootstrap.bundle.min.js"></script>
