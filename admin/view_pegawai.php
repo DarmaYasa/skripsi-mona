@@ -1,4 +1,4 @@
-<?php include '../env.php'; include '../auth/cek_session.php';  include 'cek_level.php';?>
+<?php include '../env.php'; include '../auth/cek_session.php';  include 'cek_level.php'; include '../helpers/pagination.php'; ?>
 
 <?php 
 	if(isset($_GET['pesan'])){
@@ -215,10 +215,23 @@
 							<tbody>
 
 							<?php 
-								$no = 1;
+								$page = isset($_GET['page']) && $_GET['page'] >= 1 ? $_GET['page'] : 1;
+								$limit = 10;
+								$search = isset($_GET['search']) ? $_GET['search'] : '';
 								$query = "SELECT * FROM pegawai WHERE nama_lengkap LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%'"; 
+								
 								$sql = mysqli_query($koneksi, $query);
 								$row = mysqli_num_rows($sql);
+								$total_page = ceil($row / $limit);
+								$skip = ($page > 1) ? (($page - 1) * $limit) : 0;	
+								$no = $skip + 1;
+								$links = generate_pagination($total_page, $page);
+								// print_r($links);
+
+								$query = $query . " LIMIT $skip, $limit";
+								$sql = mysqli_query($koneksi, $query);
+								$row = mysqli_num_rows($sql);
+
 								if($row > 0){
 								while($d = mysqli_fetch_array($sql)){
 									echo "<tr>";
@@ -239,6 +252,47 @@
 							?>
 							</tbody>
 						</table>
+						<nav aria-label="Page navigation example">
+							<ul class="pagination justify-content-end">
+								<li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+									<?php if($page == 1) : ?>
+										<span class="page-link">&laquo;</span>
+									<?php else: ?>
+										<a class="page-link" href="<?= '?page=' . (1) . '&search=' . $search ?>">&laquo;</a>
+									<?php endif; ?>
+								</li>
+								<li class="page-item <?= $page == 1 ? 'disabled' : '' ?>">
+									<?php if($page == 1) : ?>
+										<span class="page-link">&lsaquo;</span>
+									<?php else: ?>
+											<a class="page-link" href="<?= '?page=' . ($page - 1) . '&search=' . $search ?>">&lsaquo;</a>
+									<?php endif; ?>
+								</li>
+								<?php foreach($links as $link): ?>
+								<li class="page-item <?= $link['active'] ? 'active' : '' ?> <?= $link['label'] == '...' ? 'disabled' : ''?> ?>">
+									<?php if($link['active'] || $link['label'] == '...') : ?>
+										<span class="page-link"><?= $link['label'] ?></span>
+									<?php else: ?>
+										<a class="page-link" href="<?= '?page=' . $link['label'] . '&search=' . $search ?>"><?= $link['label'] ?></a>
+									<?php endif; ?>
+								</li>
+								<?php endforeach; ?>
+								<li class="page-item <?= $page == $total_page ? 'disabled' : '' ?>">
+									<?php if($page == $total_page) : ?>
+										<span class="page-link">&rsaquo;</span>
+									<?php else: ?>
+											<a class="page-link" href="<?= '?page=' . ($page - 1) . '&search=' . $search ?>">&rsaquo;</a>
+									<?php endif; ?>
+								</li>
+								<li class="page-item <?= $page == $total_page ? 'disabled' : '' ?>">
+									<?php if($page == $total_page) : ?>
+										<span class="page-link">&raquo;</span>
+									<?php else: ?>
+											<a class="page-link" href="<?= '?page=' . ($total_page) . '&search=' . $search ?>">&raquo;</a>
+									<?php endif; ?>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>
