@@ -171,6 +171,7 @@
                 <div class="row">
                     <div class="col"></div>
                     <div class="col-lg-7">
+                        <p>**File yang diperbolehkan hanya file pdf</p>
 
                     <?php
                     $id = $_GET["id"];
@@ -194,7 +195,7 @@
                                     echo "<tr>";
                                         echo "<td>Berkas SK PNS</td>";
                                         echo "<td style='width:300px;'>";
-                                            echo "<input class='form-control' type='file' id='formFile' accept='application/pdf' name='berkas_sk_pns' value=".$d['berkas_sk_pns'].">";
+                                            echo "<input class='form-control' type='file' accept='.pdf' id='formFile' accept='application/pdf' name='berkas_sk_pns' value=".$d['berkas_sk_pns'].">";
                                             if($d['berkas_sk_pns']) {
                                                 echo "<a href='" . $d['berkas_sk_pns'] . "'>Lihat File</a>";
                                             }
@@ -203,7 +204,7 @@
                                     echo "<tr>";
                                         echo "<td>Berkas Kenaikan Pangkat Terakhir</td>";
                                         echo "<td style='width:300px;'>";
-                                            echo "<input class='form-control' type='file' id='formFile' accept='application/pdf' name='berkas_kenaikan_pangkat' value=".$d['berkas_kenaikan_pangkat'].">";
+                                            echo "<input class='form-control' type='file' accept='.pdf' id='formFile' accept='application/pdf' name='berkas_kenaikan_pangkat' value=".$d['berkas_kenaikan_pangkat'].">";
                                             if($d['berkas_kenaikan_pangkat']) {
                                                 echo "<a href='" . $d['berkas_kenaikan_pangkat'] . "'>Lihat File</a>";
                                             }
@@ -212,7 +213,7 @@
                                     echo "<tr>";
                                         echo "<td>Kartu Pegawai</td>";
                                         echo "<td style='width:300px;'>";
-                                            echo "<input class='form-control' type='file' id='formFile' accept='application/pdf' name='kartu_pegawai' value=".$d['kartu_pegawai'].">";
+                                            echo "<input class='form-control' type='file' accept='.pdf' id='formFile' accept='application/pdf' name='kartu_pegawai' value=".$d['kartu_pegawai'].">";
                                             if($d['kartu_pegawai']) {
                                                 echo "<a href='" . $d['kartu_pegawai'] . "'>Lihat File</a>";
                                             }
@@ -221,7 +222,7 @@
                                     echo "<tr>";
                                         echo "<td>Berkas Karsi / Karsu</td>";
                                         echo "<td style='width:300px;'>";
-                                            echo "<input class='form-control' type='file' id='formFile' accept='application/pdf' name='berkas_karsi_karsu' value=".$d['berkas_karsi_karsu'].">";
+                                            echo "<input class='form-control' type='file' accept='.pdf' id='formFile' accept='application/pdf' name='berkas_karsi_karsu' value=".$d['berkas_karsi_karsu'].">";
                                             if($d['berkas_karsi_karsu']) {
                                                 echo "<a href='" . $d['berkas_karsi_karsu'] . "'>Lihat File</a>";
                                             }
@@ -230,7 +231,7 @@
                                     echo "<tr>";
                                         echo "<td>Kartu Keluarga</td>";
                                         echo "<td style='width:300px;'>";
-                                            echo "<input class='form-control' type='file' id='formFile' accept='application/pdf' name='kartu_keluarga' value=".$d['kartu_keluarga'].">";
+                                            echo "<input class='form-control' type='file' accept='.pdf' id='formFile' accept='application/pdf' name='kartu_keluarga' value=".$d['kartu_keluarga'].">";
                                             if($d['kartu_keluarga']) {
                                                 echo "<a href='" . $d['kartu_keluarga'] . "'>Lihat File</a>";
                                             }
@@ -239,7 +240,7 @@
                                     echo "<tr>";
                                         echo "<td>Surat Ket. Alamat Pensiun</td>";
                                         echo "<td style='width:300px;'>";
-                                            echo "<input class='form-control' type='file' id='formFile' accept='application/pdf' name='alamat_pensiun' value=".$d['surat_ket_alamat_pensiun'].">";
+                                            echo "<input class='form-control' type='file' accept='.pdf' id='formFile' accept='application/pdf' name='alamat_pensiun' value=".$d['surat_ket_alamat_pensiun'].">";
                                             if($d['surat_ket_alamat_pensiun']) {
                                                 echo "<a href='" . $d['surat_ket_alamat_pensiun'] . "'>Lihat File</a>";
                                             }

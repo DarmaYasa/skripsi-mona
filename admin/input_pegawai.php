@@ -177,8 +177,8 @@ if (isset($_GET['pesan'])) {
 		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>Foto :</label>
-				<input type="file" name="foto" required="required">
-				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+				<input type="file" name="foto" required="required" accept="image/*">
+				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukuran kurang dari 10MB</p>
 			</div>
 			<div class="form-group">
 				<label for="">Nama Lengkap :</label>

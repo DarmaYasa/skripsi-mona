@@ -237,7 +237,8 @@ if (isset($_GET['pesan'])) {
 			</div>
             <div class="form-group mb-2">
                 <label class="mb-1">Keteragan :</label>
-                <textarea name="keterangan" class="form-control" rows="5"><?= isset($pensiun) ? $pensiun['keterangan'] : '' ?></textarea>
+                <textarea name="keterangan" class="form-control" rows="5"><?= isset($pensiun) ? $pensiun['keterangan'] : '-' ?></textarea>
+				<span>**Jika tidak ada keterangan silahkan input strip(-)</span>
 			</div>
 			<input type="submit" name="" value="Simpan" class="btn btn-primary mb-5">
 		</form>
