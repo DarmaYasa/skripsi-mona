@@ -35,6 +35,7 @@ $validation = $validator->make($_POST + $_FILES, [
     'required' => ':attribute harus diisi',
     'in' => ':attribute hanya boleh :allowed_values',
     'digits' => ':attribute harus angka dan panjangnya :length',
+	'uploaded_file' => ':attribute harus berekstensi image dan maksimal 2MB'
 ]);
 
 $validation->setAliases([
@@ -53,6 +54,7 @@ $validation->setAliases([
     'pendidikan' => 'Pendidikan',
     'telepon' => 'Telepon',
     'alamat' => 'Alamat',
+	'foto' => 'Foto'
 ]);
 
 $validation->validate();

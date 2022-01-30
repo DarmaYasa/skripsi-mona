@@ -64,23 +64,31 @@ if (isset($_GET['pesan'])) {
 				Ekstensi Tidak Diperbolehkan
 			</div>
 			<?php
-		} elseif ($_GET['alert'] == "gagal_ukuran") {
+			} elseif ($_GET['alert'] == "gagal_ukuran") {
+					?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div>
+				<?php
+			} elseif ($_GET['alert'] == "berhasil") {
+					?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div>
+				<?php
+			} else {
 				?>
-			<div class="alert alert-warning alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
-				Ukuran File terlalu Besar
-			</div>
-			<?php
-		} elseif ($_GET['alert'] == "berhasil") {
-				?>
-			<div class="alert alert-success alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Success</h4>
-				Berhasil Disimpan
-			</div>
-			<?php
-		}
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					<?= $_GET['alert'] ?>
+				</div>
+				<?php
+			}
 		}
 	?>
 
@@ -150,17 +158,36 @@ if (isset($_GET['pesan'])) {
                 $result_query = mysqli_query($koneksi, $query);
 
                 if(mysqli_num_rows($result_query) > 0) {
-                    $data = mysqli_fetch_assoc($result_query);
+                    $data = isset($_SESSION['form_update_pegawai']) ? $_SESSION['form_update_pegawai'] : mysqli_fetch_assoc($result_query);
                 } else {
                     header("location: view_pegawai.php");
                 }
             ?>
 		<h2 style="text-align: center;">Edit Data Pegawai</h2>
+		<div>
+			<?php if(isset($_SESSION['error_form_update_pegawai'])): ?>
+				<div class="alert alert-danger" role="alert">
+					<h4 class="alert-heading">Data belum benar!</h4>
+					<ul>
+						<?php foreach ($_SESSION['error_form_update_pegawai'] as $error) : ?>
+							<li><?= $error ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+
+			<?php 
+				unset($_SESSION['error_form_input_pegawai']);
+				unset($_SESSION['form_input_pegawai']);
+			?>
+
+		</div>
 		<form action="aksi_update.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>Foto :</label>
-				<input type="file" name="foto">
-				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+				<input type="file" name="foto" accept="image/*">
+				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukurann kurang dari 2MB</p>
+				<a href="../gambar/<?=$data['nama_gambar'] ?>">Lihat foto sebelumnya</a>
 			</div>
 			<input type="hidden" name="foto" id="" required="required" value="<?= $data['nama_gambar'] ?>">
 			<div class="form-group">
