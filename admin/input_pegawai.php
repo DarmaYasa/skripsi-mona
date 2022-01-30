@@ -64,23 +64,32 @@ if (isset($_GET['pesan'])) {
 				Ekstensi Tidak Diperbolehkan
 			</div>
 			<?php
-		} elseif ($_GET['alert'] == "gagal_ukuran") {
+			} elseif ($_GET['alert'] == "gagal_ukuran") {
+					?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div>
+			
+				<?php
+			} elseif ($_GET['alert'] == "berhasil") {
+					?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div>
+				<?php
+			} else {
 				?>
-			<div class="alert alert-warning alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
-				Ukuran File terlalu Besar
-			</div>
-			<?php
-		} elseif ($_GET['alert'] == "berhasil") {
-				?>
-			<div class="alert alert-success alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Success</h4>
-				Berhasil Disimpan
-			</div>
-			<?php
-		}
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					<?= $_GET['alert'] ?>
+				</div>
+				<?php
+			}
 		}
 	?>
 
@@ -144,83 +153,118 @@ if (isset($_GET['pesan'])) {
 
 			<div class="container">
 		<h2 style="text-align: center;">Tambah Data Pegawai</h2>
+		<div>
+			<?php if(isset($_SESSION['error_form_input_pegawai'])): ?>
+				<div class="alert alert-danger" role="alert">
+					<h4 class="alert-heading">Data belum benar!</h4>
+					<ul>
+						<?php foreach ($_SESSION['error_form_input_pegawai'] as $error) : ?>
+							<li><?= $error ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+
+			<?php 
+				$old = isset($_SESSION['form_input_pegawai']) ? $_SESSION['form_input_pegawai'] : [
+					'nama_lengkap' => '',
+					'nip' => '',
+					'tempat_lahir' => '',
+					'tanggal_lahir' => '',
+					'jenis_kelamin'=> '',
+					'status' => '',
+					'agama' => '',
+					'tempat_tugas' => '',
+					'no_sk_pensiun' => '',
+					'golongan' => '',
+					'jabatan' => '',
+					'pendidikan' => '',
+					'telepon' => '',
+					'alamat' => '',
+					'eselon' => '',
+				];
+				unset($_SESSION['error_form_input_pegawai']);
+				unset($_SESSION['form_input_pegawai']);
+			?>
+
+		</div>
 		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>Foto :</label>
 				<input type="file" name="foto" required="required" accept="image/*">
-				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukuran kurang dari 10MB</p>
+				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukuran kurang dari 2MB</p>
 			</div>
 			<div class="form-group">
 				<label for="">Nama Lengkap :</label>
-				<input type="text" class="form-control" name="nama_lengkap" id="" required="required">
+				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $old['nama_lengkap'] ?>">
 			</div>
 			<div class="form-group">
 				<label>NIP :</label>
-				<input type="text" class="form-control" name="nip" required="required">
+				<input type="text" class="form-control" name="nip" required="required" value="<?= $old['nip'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Tempat Lahir :</label>
-				<input type="text" class="form-control" name="tempat_lahir" required="required">
+				<input type="text" class="form-control" name="tempat_lahir" required="required" value="<?= $old['tempat_lahir'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Tanggal Lahir :</label>
-				<input type="date" class="form-control" name="tanggal_lahir" required="required">
+				<input type="date" class="form-control" name="tanggal_lahir" required="required" value="<?= $old['tanggal_lahir'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Jenis Kelamin :</label>
 				<select name="jenis_kelamin" required class="form-control">
 					<option value="" disabled selected>-Pilih Jenis Kelamin-</option>
-					<option value="Perempuan">Perempuan</option>
-					<option value="Laki - laki">Laki - laki</option>
+					<option value="Perempuan" <?= $old['jenis_kelamin'] == 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
+					<option value="Laki - laki" <?= $old['jenis_kelamin'] == 'Laki - laki' ? 'selected' : '' ?>>Laki - laki</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label>Status :</label>
-				<input type="text" class="form-control" name="status" required="required">
+				<input type="text" class="form-control" name="status" required="required" value="<?= $old['status'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Agama :</label>
 				<select name="agama" required class="form-control">
 					<option value="" disabled selected>-Select Agama-</option>
-					<option value="Hindu">Hindu</option>
-					<option value="Islam">Islam</option>
-					<option value="Katolik">Katolik</option>
-					<option value="Protestan">Protestan</option>
-					<option value="Budha">Budha</option>
-					<option value="Konghucu">Konghucu</option>
+					<option value="Hindu" <?= $old['agama'] == 'Hindu' ? 'selected' : '' ?>>Hindu</option>
+					<option value="Islam" <?= $old['agama'] == 'Islam' ? 'selected' : '' ?>>Islam</option>
+					<option value="Katolik" <?= $old['agama'] == 'Katolik' ? 'selected' : '' ?>>Katolik</option>
+					<option value="Protestan" <?= $old['agama'] == 'Protestan' ? 'selected' : '' ?>>Protestan</option>
+					<option value="Budha" <?= $old['agama'] == 'Budha' ? 'selected' : '' ?>>Budha</option>
+					<option value="Konghucu" <?= $old['agama'] == 'Knghucu' ? 'selected' : '' ?>>Konghucu</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label>Tempat Tugas :</label>
-				<input type="text" class="form-control" name="tempat_tugas" required="required">
+				<input type="text" class="form-control" name="tempat_tugas" required="required" value="<?= $old['tempat_tugas'] ?>">
 			</div>
 			<div class="form-group">
 				<label>No.SK.Pensiun :</label>
-				<input type="text" class="form-control" name="no_sk_pensiun" required="required">
+				<input type="text" class="form-control" name="no_sk_pensiun" required="required" value="<?= $old['no_sk_pensiun'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Golongan :</label>
-				<input type="text" class="form-control" name="golongan" required="required">
+				<input type="text" class="form-control" name="golongan" required="required" value="<?= $old['golongan'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Jabatan :</label>
-				<input type="text" class="form-control" name="jabatan" required="required">
+				<input type="text" class="form-control" name="jabatan" required="required" value="<?= $old['jabatan'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Eselon :</label>
-				<input type="text" class="form-control" name="eselon" required="required">
+				<input type="text" class="form-control" name="eselon" required="required" value="<?= $old['eselon'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Pendidikan :</label>
-				<input type="text" class="form-control" name="pendidikan" required="required">
+				<input type="text" class="form-control" name="pendidikan" required="required" value="<?= $old['pendidikan'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Telepon :</label>
-				<input type="tel" class="form-control" name="telepon" required="required">
+				<input type="tel" class="form-control" name="telepon" required="required" value="<?= $old['telepon'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Alamat :</label>
-				<textarea name="alamat" rows="5" class="form-control" required></textarea>
+				<textarea name="alamat" rows="5" class="form-control" required><?= $old['alamat'] ?></textarea>
 			</div>
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
 		</form>
