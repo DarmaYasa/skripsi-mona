@@ -190,11 +190,6 @@ if (isset($_GET['pesan'])) {
 		</div>
 		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
-				<label>Foto :</label>
-				<input type="file" name="foto" required="required" accept="image/*">
-				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukuran kurang dari 2MB</p>
-			</div>
-			<div class="form-group">
 				<label for="">Nama Lengkap :</label>
 				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $old['nama_lengkap'] ?>">
 			</div>
@@ -221,6 +216,15 @@ if (isset($_GET['pesan'])) {
 			<div class="form-group">
 				<label>Status :</label>
 				<input type="text" class="form-control" name="status" required="required" value="<?= $old['status'] ?>">
+			</div>
+			<div class="form-group">
+				<label>Status Perkawinan:</label>
+				<select name="status_perkawinan" required class="form-control">
+					<option value="" disabled selected>-Select Agama-</option>
+					<option value="Menikah" <?= $old['status_perkawinan'] == 'Menikah' ? 'selected' : '' ?>>Menikah</option>
+					<option value="Belum Menikah" <?= $old['status_perkawinan'] == 'Belum Menikah' ? 'selected' : '' ?>>Belum Menikah</option>
+					<option value="Cerai" <?= $old['status_perkawinan'] == 'Cerai' ? 'selected' : '' ?>>Cerai</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label>Agama :</label>
@@ -265,6 +269,11 @@ if (isset($_GET['pesan'])) {
 			<div class="form-group">
 				<label>Alamat :</label>
 				<textarea name="alamat" rows="5" class="form-control" required><?= $old['alamat'] ?></textarea>
+			</div>
+			<div class="form-group">
+				<label>Foto :</label>
+				<input type="file" name="foto" required="required" accept="image/*">
+				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukuran kurang dari 2MB</p>
 			</div>
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
 		</form>

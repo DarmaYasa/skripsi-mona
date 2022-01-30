@@ -21,6 +21,7 @@ $validation = $validator->make($_POST + $_FILES, [
     'tempat_lahir' => 'required',
     'jenis_kelamin' => 'required|in:Perempuan,Laki - laki',
     'status' => 'required',
+    'status_perkawinan' => 'required',
     'agama' => 'required',
     'tempat_tugas' => 'required',
     'no_sk_pensiun' => 'nullable',
@@ -45,6 +46,7 @@ $validation->setAliases([
     'tanggal_lahir' => 'Tanggal lahir',
     'jenis_kelamin' => 'Jenis kelamin',
     'status' => 'status',
+    'status_perkawinan' => 'Status perkawinan',
     'agama' => 'Agama',
     'tempat_tugas' => 'Tempat tugas',
     'no_sk_pensiun' => 'No. SK Pensiun',
@@ -73,6 +75,7 @@ $tempat_lahir = $_POST['tempat_lahir'];
 $tanggal_lahir = $_POST['tanggal_lahir'];
 $jenis_kelamin = $_POST['jenis_kelamin'];
 $status = $_POST['status'];
+$status_perkawinan = $_POST['status_perkawinan'];
 $agama = $_POST['agama'];
 $tempat_tugas = $_POST['tempat_tugas'];
 $no_sk_pensiun = $_POST['no_sk_pensiun'];
@@ -98,7 +101,7 @@ $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 $xx = $rand . '_' . $filename;
 move_uploaded_file($_FILES['foto']['tmp_name'], '../gambar/' . $rand . '_' . $filename);
-mysqli_query($koneksi, "INSERT INTO pegawai (`nama_gambar`, `nama_lengkap`, `nip`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `status`, `agama`, `tempat_tugas`, `no_sk_pensiun`, `golongan`, `jabatan`, `eselon`, `alamat`, `telepon`, `pendidikan`) VALUES('$xx','$nama_lengkap','$nip','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$status','$agama','$tempat_tugas','$no_sk_pensiun','$golongan','$jabatan', '$eselon', '$pendidikan', '$telepon', '$alamat')");
+mysqli_query($koneksi, "INSERT INTO pegawai (`nama_gambar`, `nama_lengkap`, `nip`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `status`, `status_perkawinan` , `agama`, `tempat_tugas`, `no_sk_pensiun`, `golongan`, `jabatan`, `eselon`, `alamat`, `telepon`, `pendidikan`) VALUES('$xx','$nama_lengkap','$nip','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$status', '$status_perkawinan', '$agama','$tempat_tugas','$no_sk_pensiun','$golongan','$jabatan', '$eselon', '$pendidikan', '$telepon', '$alamat')");
 header("location:view_pegawai.php?alert=berhasil");
 
 ?>

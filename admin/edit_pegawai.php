@@ -183,12 +183,6 @@ if (isset($_GET['pesan'])) {
 
 		</div>
 		<form action="aksi_update.php" method="post" enctype="multipart/form-data">
-			<div class="form-group">
-				<label>Foto :</label>
-				<input type="file" name="foto" accept="image/*">
-				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukurann kurang dari 2MB</p>
-				<a href="../gambar/<?=$data['nama_gambar'] ?>">Lihat foto sebelumnya</a>
-			</div>
 			<input type="hidden" name="foto" id="" required="required" value="<?= $data['nama_gambar'] ?>">
 			<div class="form-group">
 				<label for="">Nama Lengkap :</label>
@@ -218,6 +212,15 @@ if (isset($_GET['pesan'])) {
 			<div class="form-group">
 				<label>Status :</label>
 				<input type="text" class="form-control" name="status" required="required" value="<?= $data['status'] ?>">
+			</div>
+			<div class="form-group">
+				<label>Status Perkawinan:</label>
+				<select name="status_perkawinan" required class="form-control">
+					<option value="" disabled selected>-Select Agama-</option>
+					<option value="Menikah" <?= $old['status_perkawinan'] == 'Menikah' ? 'selected' : '' ?>>Menikah</option>
+					<option value="Belum Menikah" <?= $old['status_perkawinan'] == 'Belum Menikah' ? 'selected' : '' ?>>Belum Menikah</option>
+					<option value="Cerai" <?= $old['status_perkawinan'] == 'Cerai' ? 'selected' : '' ?>>Cerai</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label>Agama :</label>
@@ -262,6 +265,12 @@ if (isset($_GET['pesan'])) {
 			<div class="form-group">
 				<label>Alamat :</label>
 				<textarea name="alamat" rows="5" class="form-control" required><?= $data['alamat'] ?></textarea>
+			</div>
+			<div class="form-group">
+				<label>Foto :</label>
+				<input type="file" name="foto" accept="image/*">
+				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukurann kurang dari 2MB</p>
+				<a href="../gambar/<?=$data['nama_gambar'] ?>">Lihat foto sebelumnya</a>
 			</div>
 			<!-- <input type="submit" name="" value="Hapus" formaction="aksi_delete.php" class="btn btn-danger mr-2"> -->
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
