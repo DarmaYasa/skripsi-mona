@@ -179,8 +179,8 @@ if (isset($_GET['pesan'])) {
 					'golongan' => '',
 					'jabatan' => '',
 					'pendidikan' => '',
-					'telepon' => '',
-					'alamat' => '',
+					'telepon' => '-',
+					'alamat' => '-',
 					'eselon' => '',
 				];
 				unset($_SESSION['error_form_input_pegawai']);
@@ -190,12 +190,12 @@ if (isset($_GET['pesan'])) {
 		</div>
 		<form action="aksi_input.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
-				<label for="">Nama Lengkap :</label>
-				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $old['nama_lengkap'] ?>">
-			</div>
-			<div class="form-group">
 				<label>NIP :</label>
 				<input type="text" class="form-control" name="nip" required="required" value="<?= $old['nip'] ?>">
+			</div>
+			<div class="form-group">
+				<label for="">Nama Lengkap :</label>
+				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $old['nama_lengkap'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Tempat Lahir :</label>
@@ -214,13 +214,9 @@ if (isset($_GET['pesan'])) {
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Status :</label>
-				<input type="text" class="form-control" name="status" required="required" value="<?= $old['status'] ?>">
-			</div>
-			<div class="form-group">
 				<label>Status Perkawinan:</label>
 				<select name="status_perkawinan" required class="form-control">
-					<option value="" disabled selected>-Select Agama-</option>
+					<option value="" disabled selected>-Select Status-</option>
 					<option value="Menikah" <?= $old['status_perkawinan'] == 'Menikah' ? 'selected' : '' ?>>Menikah</option>
 					<option value="Belum Menikah" <?= $old['status_perkawinan'] == 'Belum Menikah' ? 'selected' : '' ?>>Belum Menikah</option>
 					<option value="Cerai" <?= $old['status_perkawinan'] == 'Cerai' ? 'selected' : '' ?>>Cerai</option>
@@ -265,10 +261,12 @@ if (isset($_GET['pesan'])) {
 			<div class="form-group">
 				<label>Telepon :</label>
 				<input type="tel" class="form-control" name="telepon" required="required" value="<?= $old['telepon'] ?>">
+				<span>**beri strip (-) jika tidak ada keterangan</span>
 			</div>
 			<div class="form-group">
 				<label>Alamat :</label>
 				<textarea name="alamat" rows="5" class="form-control" required><?= $old['alamat'] ?></textarea>
+				<span>**beri strip (-) jika tidak ada keterangan</span>
 			</div>
 			<div class="form-group">
 				<label>Foto :</label>

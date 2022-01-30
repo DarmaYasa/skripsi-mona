@@ -185,13 +185,13 @@ if (isset($_GET['pesan'])) {
 		<form action="aksi_update.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="foto" id="" required="required" value="<?= $data['nama_gambar'] ?>">
 			<div class="form-group">
+				<label>NIP :</label>
+				<input type="text" class="form-control" name="nip" required="required" value="<?= $data['nip'] ?>">
+			</div>
+			<div class="form-group">
 				<label for="">Nama Lengkap :</label>
 				<input type="text" class="form-control" name="nama_lengkap" id="" required="required" value="<?= $data['nama_lengkap'] ?>">
 				<input type="hidden" class="form-control" name="id" id="" required="required" value="<?= $data['id'] ?>">
-			</div>
-			<div class="form-group">
-				<label>NIP :</label>
-				<input type="text" class="form-control" name="nip" required="required" value="<?= $data['nip'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Tempat Lahir :</label>
@@ -210,13 +210,9 @@ if (isset($_GET['pesan'])) {
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Status :</label>
-				<input type="text" class="form-control" name="status" required="required" value="<?= $data['status'] ?>">
-			</div>
-			<div class="form-group">
 				<label>Status Perkawinan:</label>
 				<select name="status_perkawinan" required class="form-control">
-					<option value="" disabled selected>-Select Agama-</option>
+					<option value="" disabled selected>-Select Status-</option>
 					<option value="Menikah" <?= $old['status_perkawinan'] == 'Menikah' ? 'selected' : '' ?>>Menikah</option>
 					<option value="Belum Menikah" <?= $old['status_perkawinan'] == 'Belum Menikah' ? 'selected' : '' ?>>Belum Menikah</option>
 					<option value="Cerai" <?= $old['status_perkawinan'] == 'Cerai' ? 'selected' : '' ?>>Cerai</option>
@@ -261,10 +257,12 @@ if (isset($_GET['pesan'])) {
 			<div class="form-group">
 				<label>Telepon :</label>
 				<input type="tel" class="form-control" name="telepon" required="required" value="<?= $data['telepon'] ?>">
+				<span>**beri strip (-) jika tidak ada keterangan</span>
 			</div>
 			<div class="form-group">
 				<label>Alamat :</label>
 				<textarea name="alamat" rows="5" class="form-control" required><?= $data['alamat'] ?></textarea>
+				<span>**beri strip (-) jika tidak ada keterangan</span>
 			</div>
 			<div class="form-group">
 				<label>Foto :</label>

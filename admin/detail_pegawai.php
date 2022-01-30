@@ -191,8 +191,8 @@
 											echo "<td>".$d['jenis_kelamin']."</td>";
 										echo "</tr>";
 										echo "<tr>";
-											echo "<th scope='row'>Status</th>";
-											echo "<td>".$d['status']."</td>";
+											echo "<th scope='row'>Status Perkawinan</th>";
+											echo "<td>".$d['status_perkawinan']."</td>";
 										echo "</tr>";
 										echo "<tr>";
 											echo "<th scope='row'>Agama</th>";

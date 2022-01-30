@@ -22,7 +22,7 @@ $validation = $validator->make($_POST + $_FILES, [
     'nip' => 'required|digits:18',
     'tempat_lahir' => 'required',
     'jenis_kelamin' => 'required|in:Perempuan,Laki - laki',
-    'status' => 'required',
+    // 'status' => 'required',
     'status_perkawinan' => 'required',
     'agama' => 'required',
     'tempat_tugas' => 'required',
@@ -47,7 +47,7 @@ $validation->setAliases([
     'tempat_lahir' => 'Tempar lahir',
     'tanggal_lahir' => 'Tanggal lahir',
     'jenis_kelamin' => 'Jenis kelamin',
-    'status' => 'status',
+    // 'status' => 'status',
     'status_perkawinan' => 'Status perkawinan',
     'agama' => 'Agama',
     'tempat_tugas' => 'Tempat tugas',
@@ -77,7 +77,7 @@ $tempat_lahir = $_POST['tempat_lahir'];
 $tanggal_lahir = $_POST['tanggal_lahir'];
 $jenis_kelamin = $_POST['jenis_kelamin'];
 $foto = $_POST['foto'];
-$status = $_POST['status'];
+// $status = $_POST['status'];
 $status_perkawinan = $_POST['status_perkawinan'];
 $agama = $_POST['agama'];
 $tempat_tugas = $_POST['tempat_tugas'];
@@ -111,5 +111,5 @@ if ($_FILES['foto']['name'] != '') {
 // echo "UPDATE pegawai SET nama_lengkap='$nama_lengkap', nip='$nip', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', jenis_kelamin='$jenis_kelamin', foto='$foto', `status`='$status', masa_jabatan='$masa_jabatan', tempat_tugas='$tempat_tugas', no_sk_pensiun='$no_sk_pensiun', golongan='$golongan', gaji_pokok='$gaji_pokok' WHERE id=$id";
 
 // die;
-mysqli_query($koneksi, "UPDATE pegawai SET nama_lengkap='$nama_lengkap', nip='$nip', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', jenis_kelamin='$jenis_kelamin', nama_gambar='$foto', `status`='$status', `status_perkawinan`='$status_perkawinan', tempat_tugas='$tempat_tugas', no_sk_pensiun='$no_sk_pensiun', golongan='$golongan', jabatan='$jabatan', eselon='$eselon', pendidikan='$pendidikan', telepon='$telepon', alamat='$alamat' WHERE id=$id");
+mysqli_query($koneksi, "UPDATE pegawai SET nama_lengkap='$nama_lengkap', nip='$nip', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', jenis_kelamin='$jenis_kelamin', nama_gambar='$foto', `status`='$status_perkawinan', `status_perkawinan`='$status_perkawinan', tempat_tugas='$tempat_tugas', no_sk_pensiun='$no_sk_pensiun', golongan='$golongan', jabatan='$jabatan', eselon='$eselon', pendidikan='$pendidikan', telepon='$telepon', alamat='$alamat' WHERE id=$id");
 header("location:view_pegawai.php?alert=berhasil");
