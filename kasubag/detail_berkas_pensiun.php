@@ -216,9 +216,19 @@
                                             echo "
                                                 <select class='form-control' name='terverifikasi' value='" . $d['terverifikasi'] . "'>
                                                     <option value='' disabled selected>-Pilih Status-</option>
-                                                    <option value='0' " . ($d['terverifikasi'] == 0 ? 'selected' : '')  . ">Belum tervefifikasi</option>
+                                                    <option value='0' " . ($d['terverifikasi'] == 0 ? 'selected' : '')  . ">Belum verifikasi</option>
                                                     <option value='1' " . ($d['terverifikasi'] == 1 ? 'selected' : '')  . ">Terverifikasi</option>
+                                                    <option value='2' " . ($d['terverifikasi'] == 2 ? 'selected' : '')  . ">Revisi</option>
                                                 </select>
+                                            ";
+                                        echo "</td>";
+                                    echo "</tr>";
+                                    echo "<tr>";
+                                        echo "<td>Keterangan</td>";
+                                        echo "<td style='width:300px;'>";
+                                            echo "
+                                                <textarea row='10' class='form-control' name='keterangan' required>".$d['keterangan'] . "</textarea>
+                                                <span>**Berikan strip(-) jika tidak ada kererangan</span>
                                             ";
                                         echo "</td>";
                                     echo "</tr>";

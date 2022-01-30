@@ -142,8 +142,8 @@
                     <div class="col"></div>
                     <div class="col-lg-7">
                         <p>**File yang diperbolehkan hanya file pdf</p>
-
-                    <?php
+                        
+                        <?php
                     $id = $_GET["id"];
 					$data = "SELECT pensiun.*, berkas_pensiun.* FROM pensiun LEFT JOIN berkas_pensiun ON pensiun.id=berkas_pensiun.id_pensiun WHERE pensiun.id='$id' LIMIT 1";
 					$sql_d = mysqli_query($koneksi, $data);
@@ -152,6 +152,17 @@
 					if($row_d > 0){
 						while($d = mysqli_fetch_assoc($sql_d)){ 
                             // print_r($d);
+                            if($d['terverifikasi'] == 2) {
+                                echo ' <div class="alert alert-danger" role="alert">';
+                                    echo "<strong>Revisi</strong> <br>";
+                                    echo "Keterangan : " . $d['keterangan'];
+                                echo '</div>';
+                            } elseif($d['terverifikasi'] == 1) {
+                                echo ' <div class="alert alert-success" role="alert">';
+                                    echo "<strong>Berkas terverifikasi!</strong> <br>";
+                                    echo "Keteragan : " . $d['keterangan'];
+                                echo '</div>';
+                            }
                             echo "<form action='aksi_input_pensiun.php' method='post' enctype='multipart/form-data'>";
                             echo "<input type='hidden' name='id' value=".$id.">";
                                 echo "<table class='table table-secondary'>";
@@ -227,10 +238,12 @@
                                 echo "<div class='col'></div>";
                                 echo "<div class='col-lg-7'>";
                                  echo "<div class='text-end'>";
-                                    if($d['id']) {
+                                    if($d['id'] && $d['terverifikasi'] != 1) {
                                         echo "<input class='btn btn-danger mr-2 rounded-0' type='submit' formaction='aksi_delete_pensiun.php' value='Hapus' style='margin-right: 2px'>";
-                                    }    
-                                    echo "<input class='btn btn-primary rounded-0' type='submit' value='Simpan'>";
+                                    }
+                                    if($d['terverifikasi'] != 1) {
+                                        echo "<input class='btn btn-primary rounded-0' type='submit' value='Simpan'>";
+                                    }
                                 echo "</div>";
                                 echo "</div>";
                                 echo "<div class='col'></div>";
