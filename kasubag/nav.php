@@ -1,5 +1,5 @@
 <?php
-    $current_page = str_replace(('/' . explode('/', $_SERVER['PHP_SELF'])[1] . '/admin/'), '', $_SERVER['PHP_SELF']);
+    $current_page = str_replace(('/' . explode('/', $_SERVER['PHP_SELF'])[1] . '/kasubag/'), '', $_SERVER['PHP_SELF']);
 
     // echo $current_page;
 
@@ -31,7 +31,7 @@
             
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-dark <?= in_array($current_page, $mapping['beranda']) ? 'fw-bold' : '' ?>" href="index_admin.php">Beranda</a>
+                    <a class="nav-link text-dark <?= in_array($current_page, $mapping['beranda']) ? 'fw-bold' : '' ?>" href="index_kasubag.php">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark <?= in_array($current_page, $mapping['pensiun']) ? 'fw-bold' : '' ?>" href="view_pensiun.php">Pensiun</a>
