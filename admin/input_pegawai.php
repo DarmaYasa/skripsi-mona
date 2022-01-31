@@ -173,6 +173,7 @@ if (isset($_GET['pesan'])) {
 					'tanggal_lahir' => '',
 					'jenis_kelamin'=> '',
 					'status' => '',
+					'status_perkawinan' => '',
 					'agama' => '',
 					'tempat_tugas' => '',
 					'no_sk_pensiun' => '',
