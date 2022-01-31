@@ -213,9 +213,9 @@ if (isset($_GET['pesan'])) {
 				<label>Status Perkawinan:</label>
 				<select name="status_perkawinan" required class="form-control">
 					<option value="" disabled selected>-Select Status-</option>
-					<option value="Menikah" <?= $old['status_perkawinan'] == 'Menikah' ? 'selected' : '' ?>>Menikah</option>
-					<option value="Belum Menikah" <?= $old['status_perkawinan'] == 'Belum Menikah' ? 'selected' : '' ?>>Belum Menikah</option>
-					<option value="Cerai" <?= $old['status_perkawinan'] == 'Cerai' ? 'selected' : '' ?>>Cerai</option>
+					<option value="Menikah" <?= $data['status_perkawinan'] == 'Menikah' ? 'selected' : '' ?>>Menikah</option>
+					<option value="Belum Menikah" <?= $data['status_perkawinan'] == 'Belum Menikah' ? 'selected' : '' ?>>Belum Menikah</option>
+					<option value="Cerai" <?= $data['status_perkawinan'] == 'Cerai' ? 'selected' : '' ?>>Cerai</option>
 				</select>
 			</div>
 			<div class="form-group">
