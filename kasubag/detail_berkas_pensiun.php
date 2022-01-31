@@ -243,9 +243,9 @@
                                 echo "<div class='col'></div>";
                                 echo "<div class='col-lg-7'>";
                                  echo "<div class='text-end'>";
-                                    if($d['id']) {
-                                        echo "<input class='btn btn-danger mr-2 rounded-0' type='submit' formaction='../admin/aksi_delete_pensiun.php' value='Hapus' style='margin-right: 2px'>";
-                                    }
+                                    // if($d['id']) {
+                                    //     echo "<input class='btn btn-danger mr-2 rounded-0' type='submit' formaction='../admin/aksi_delete_pensiun.php' value='Hapus' style='margin-right: 2px'>";
+                                    // }
                                     echo "<input class='btn btn-primary rounded-0' type='submit' value='Simpan'>";
                                 echo "</div>";
                                 echo "</div>";
