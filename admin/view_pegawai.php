@@ -175,8 +175,8 @@
 							<thead>
 								<tr>
 									<th scope="col">No</th>
-									<th scope="col">Nama</th>
 									<th scope="col">Nip</th>
+									<th scope="col">Nama</th>
 									<th scope="col">Golongan</th>
 									<th scope="col">Tempat Tugas</th>
 									<th scope="col">Opsi</th>
@@ -206,8 +206,8 @@
 								while($d = mysqli_fetch_array($sql)){
 									echo "<tr>";
 									echo "<td>".$no++."</td>";
-									echo "<td>".$d['nama_lengkap']."</td>";
 									echo "<td>".$d['nip']."</td>";
+									echo "<td>".$d['nama_lengkap']."</td>";
 									echo "<td>".$d['golongan']."</td>";
 									echo "<td>".$d['tempat_tugas']."</td>";
 									$id = $d['id'];

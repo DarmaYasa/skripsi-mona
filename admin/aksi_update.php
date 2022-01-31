@@ -8,7 +8,8 @@ use Rakit\Validation\Validator;
 
 $id = $_POST['id'];
 
-$_SESSION['form_update_pegawai'] = $_POST;
+$_SESSION['form_update_pegawai'] = array_merge($_POST, ['nama_gambar' => $_POST['foto']]);
+
 
 $validator = new Validator;
 

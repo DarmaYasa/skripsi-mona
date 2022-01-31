@@ -170,13 +170,14 @@
 							echo "<div>";
 								echo "<table class='table'>";
 									echo "<tbody>";
-										echo "<tr>";
-											echo "<th scope='row'>Nama</th>";
-											echo "<td>".$d['nama_lengkap']."</td>";
-										echo "</tr>";
+										
 										echo "<tr>";
 											echo "<th scope='row'>Nip</th>";
 											echo "<td>".$d['nip']."</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th scope='row'>Nama</th>";
+											echo "<td>".$d['nama_lengkap']."</td>";
 										echo "</tr>";
 										echo "<tr>";
 											echo "<th scope='row'>Tempat Lahir</th>";

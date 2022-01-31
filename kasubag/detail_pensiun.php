@@ -160,13 +160,14 @@
 					<div class="col-sm-5">
 						<table class="table">
 							<tr>
-								<th scope="row">Nama</th>
-								<td><?= $data['nama'] ?></td>
-							</tr>
-							<tr>
 								<th scope="row">NIP</th>
 								<td><?= $data['nip'] ?></td>
 							</tr>
+							<tr>
+								<th scope="row">Nama</th>
+								<td><?= $data['nama'] ?></td>
+							</tr>
+							
 							<tr>
 								<th scope="row">Unit Kerja</th>
 								<td><?= $data['unit_kerja'] ?></td>

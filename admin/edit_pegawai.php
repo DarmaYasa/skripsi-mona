@@ -177,8 +177,8 @@ if (isset($_GET['pesan'])) {
 			<?php endif; ?>
 
 			<?php 
-				unset($_SESSION['error_form_input_pegawai']);
-				unset($_SESSION['form_input_pegawai']);
+				unset($_SESSION['error_form_update_pegawai']);
+				unset($_SESSION['form_update_pegawai']);
 			?>
 
 		</div>
@@ -265,10 +265,21 @@ if (isset($_GET['pesan'])) {
 				<span>**beri strip (-) jika tidak ada keterangan</span>
 			</div>
 			<div class="form-group">
+				<pre>
+				<?php 
+					$root = 'http://localhost/skripsi-mona-master'; // change this if base folder changed
+					$file = $root . '/gambar/' . $data['nama_gambar'];
+					$exists = file_exists($file);
+				?>
+			</pre>
 				<label>Foto :</label>
-				<input type="file" name="foto" accept="image/*">
+				<input type="file" name="foto" accept="image/*" <?= $exists ? '' : 'required'?>>
 				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif dan berukurann kurang dari 2MB</p>
-				<a href="../gambar/<?=$data['nama_gambar'] ?>">Lihat foto sebelumnya</a>
+
+				<?php if($exists):?>
+					<a href="../gambar/<?=$data['nama_gambar'] ?>">Lihat foto sebelumnya</a>
+				<?php endif; ?>
+				
 			</div>
 			<!-- <input type="submit" name="" value="Hapus" formaction="aksi_delete.php" class="btn btn-danger mr-2"> -->
 			<input type="submit" name="" value="Simpan" class="btn btn-primary">
