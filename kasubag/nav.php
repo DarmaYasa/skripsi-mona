@@ -1,7 +1,7 @@
 <?php
     $current_page = str_replace(('/' . explode('/', $_SERVER['PHP_SELF'])[1] . '/admin/'), '', $_SERVER['PHP_SELF']);
 
-    echo $current_page;
+    // echo $current_page;
 
     $mapping = [
         'beranda' => [
