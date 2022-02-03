@@ -190,10 +190,11 @@
 								$limit = 10;
 								$no = 1;
 								$search = isset($_GET['search']) ? $_GET['search'] : '';
-								$query = "SELECT * FROM pensiun WHERE nama LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%'";
+								$query = "SELECT pensiun.*, berkas_pensiun.terverifikasi FROM pensiun LEFT JOIN berkas_pensiun ON pensiun.id = berkas_pensiun.id_pensiun WHERE nama LIKE '%" . (array_key_exists('search', $_GET) ? $_GET['search'] : '') . "%'";
 								// echo $query;
 								$sql = mysqli_query($koneksi, $query);
 								$row = mysqli_num_rows($sql);
+								// print_r($)
 								$total_page = ceil($row / $limit);
 								$skip = ($page > 1) ? (($page - 1) * $limit) : 0;	
 								$no = $skip + 1;
@@ -201,14 +202,19 @@
 								$query = $query . " LIMIT $skip, $limit";
 								$sql = mysqli_query($koneksi, $query);
 								$row = mysqli_num_rows($sql);
+							
 								$statuses = [
 									'0' => 'Belum Verifikasi',
 									'1' => 'Verifikasi',
-									'2' => 'Revisi'
+									'2' => 'Revisi',
+									'3' => 'Belum upload berkas'
 								];
 
 								if($row > 0){
 								while($d = mysqli_fetch_array($sql)){
+									if(!isset($d['terverifikasi'])) {
+										$d['terverifikasi'] = 3;
+									}
 									echo "<tr>";
 									echo "<td>".$no++."</td>";
 									echo "<td>".$d['nama']."</td>";
