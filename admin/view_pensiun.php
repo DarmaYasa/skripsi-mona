@@ -179,6 +179,7 @@
 								<tr>
 									<th scope="col">No</th>
 									<th scope="col">Nama</th>
+									<th scope="col">Status</th>
 									<th scope="col">Opsi</th>
 								</tr>
 							</thead>
@@ -200,12 +201,18 @@
 								$query = $query . " LIMIT $skip, $limit";
 								$sql = mysqli_query($koneksi, $query);
 								$row = mysqli_num_rows($sql);
+								$statuses = [
+									'0' => 'Belum Verifikasi',
+									'1' => 'Verifikasi',
+									'2' => 'Revisi'
+								];
 
 								if($row > 0){
 								while($d = mysqli_fetch_array($sql)){
 									echo "<tr>";
 									echo "<td>".$no++."</td>";
 									echo "<td>".$d['nama']."</td>";
+									echo "<td>".$statuses[$d['terverifikasi']]."</td>";
 									$id = $d['id_pegawai'];
 									echo "<td>
 											<a href='detail_pensiun.php?id=$id'>Detail<a>
